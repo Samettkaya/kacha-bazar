@@ -2,7 +2,7 @@ import React from "react";
 
 function Header() {
   return (
-    <div className="hidden lg:block bg-gray-100">
+    <div className=" hidden lg:block bg-gray-100">
       <div className="max-w-screen-2xl mx-auto px-3 sm:px-10">
         <div className="flex justify-between text-gray-700 text-xs py-2 font-sans font-medium border-b  ">
           <span className="flex  items-center ">

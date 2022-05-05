@@ -126,15 +126,7 @@ const resources = [
     icon: InformationCircleIcon,
   },
 ];
-const recentPosts = [
-  { id: 1, name: "Boost your conversion rate", href: "#" },
-  {
-    id: 2,
-    name: "How to use search engine optimization to drive traffic to your site",
-    href: "#",
-  },
-  { id: 3, name: "Improve your customer experience", href: "#" },
-];
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -177,7 +169,7 @@ function Navigation() {
                 }}
               >
                 <img
-                  className="flex items-center "
+                  className="flex items-center w-[110px] h-10 "
                   src={logo}
                   srcSet={`${logo} 1 ,${logo} 2 ,${logo} 3 `}
                 />
