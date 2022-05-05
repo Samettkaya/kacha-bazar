@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/img/logo-light.svg";
+import logo from "../../assets/icon/logo-light.svg";
 import Basket from "../basket/Basket";
 import Search from "../search/Search";
 import { Fragment } from "react";
@@ -19,16 +19,16 @@ import {
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 
-import category1 from "../../assets/img/category-1.png";
-import category2 from "../../assets/img/category-2.png";
-import category3 from "../../assets/img/category-3.png";
-import category4 from "../../assets/img/category-4.png";
-import category5 from "../../assets/img/category-5.png";
-import category6 from "../../assets/img/category-6.png";
-import category7 from "../../assets/img/category-7.png";
-import category8 from "../../assets/img/category-8.png";
-import category9 from "../../assets/img/category-9.png";
-import category10 from "../../assets/img/category-10.png";
+import category1 from "../../assets/icon/category-1.png";
+import category2 from "../../assets/icon/category-2.png";
+import category3 from "../../assets/icon/category-3.png";
+import category4 from "../../assets/icon/category-4.png";
+import category5 from "../../assets/icon/category-5.png";
+import category6 from "../../assets/icon/category-6.png";
+import category7 from "../../assets/icon/category-7.png";
+import category8 from "../../assets/icon/category-8.png";
+import category9 from "../../assets/icon/category-9.png";
+import category10 from "../../assets/icon/category-10.png";
 import SubMenu from "../subMenu";
 
 const solutions = [
