@@ -4,7 +4,7 @@ import Navigation from './components/navigation/Navigation';
 
 function App() {
   return (
-      <div className='font-sans'>
+      <div>
         <Header/>
         <Navigation/>      
       </div>
