@@ -1,4 +1,5 @@
 import React from "react";
+import LatestDiscountCouponCode from "../components/latestDiscountCouponCode/LatestDiscountCouponCode";
 import Slider from "../components/slider/Slider";
 
 function Home() {
@@ -11,7 +12,9 @@ function Home() {
               <div className=" flex-shrink-0 xl:pr-6 lg:block w-full lg:w-3/5">
                 <Slider />
               </div>
-              <div className="w-full hidden lg:flex">sa</div>
+              <div className="w-full hidden lg:flex">
+                <LatestDiscountCouponCode/>
+              </div>
             </div>
           </div>
         </div>
