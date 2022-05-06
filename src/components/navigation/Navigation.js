@@ -18,6 +18,7 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
+import {  Link } from "react-router-dom";
 
 import category1 from "../../assets/icon/category-1.png";
 import category2 from "../../assets/icon/category-2.png";
@@ -135,7 +136,7 @@ function Navigation() {
     <div className="sticky bg-emerald-500 top-0 z-20">
       <div className="max-w-screen-2xl mx-auto px-3 sm:px-10">
         <div className="h-16 top-bar lg:h-auto flex items-center justify-between py-4 mx-auto">
-          <a className="mr-3 hidden xl:mr-12 md:hidden lg:block " href="/">
+          <Link to="/" className="mr-3 hidden xl:mr-12 md:hidden lg:block " >
             <span
               style={{
                 boxSizing: "border-box",
@@ -175,7 +176,7 @@ function Navigation() {
                 />
               </span>
             </span>
-          </a>
+          </Link>
           <Search />
           <div className="hidden md:hidden md:items-center lg:flex xl:block absolute inset-y-0 right-0 pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <button
@@ -344,14 +345,9 @@ function Navigation() {
                         </>
                       )}
                     </Popover>
-
-                    <a href="#" className="text-sm   hover:text-emerald-600">
-                      About Us
-                    </a>
-                    <a href="#" className="text-sm  hover:text-emerald-600 ">
-                      Contact Us
-                    </a>
-
+                    <Link className="text-sm hover:text-emerald-600"to="/about-us">About Us</Link>
+                    <Link className="text-sm hover:text-emerald-600"to="/contact-us"> Contact Us</Link>
+                  
                     <Popover className="relative">
                       {({ open }) => (
                         <>
