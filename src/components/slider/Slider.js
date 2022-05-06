@@ -90,12 +90,12 @@ function Slider() {
                 <p class="text-base leading-6 text-gray-600  line-clamp-1 md:line-clamp-none lg:line-clamp-none">
                   {data.description}
                 </p>
-                <a
+                <Link
                   class="hidden sm:inline-block lg:inline-block text-sm leading-6  font-normal mt-6 px-6 py-2 bg-emerald-500 text-center rounded-md text-white hover:bg-emerald-600"
-                  href="/search?Category=biscuits--cakes"
+                  to="/search?Category=biscuits--cakes"
                 >
                   Shop Now
-                </a>
+                </Link>
               </div>
             </div>
           </SwiperSlide>
