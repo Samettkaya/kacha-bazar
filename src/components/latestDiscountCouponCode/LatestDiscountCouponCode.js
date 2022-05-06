@@ -1,5 +1,6 @@
 import React from "react";
 import ins1 from "../../assets/img/ins3.png";
+import ins2 from "../../assets/img/ins4.png";
 function LatestDiscountCouponCode() {
   return (
     <div className="w-full group">
@@ -109,7 +110,7 @@ function LatestDiscountCouponCode() {
                     maxWidth: "100%",
                   }}
                 >
-                  <img src={ins1} />
+                  <img src={ins2} />
                 </span>
               </figure>
               <div className="ml-3">
