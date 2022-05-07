@@ -3,7 +3,12 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'page-header-bg': "url('/src/assets/img/page-header-bg.jpg')",
+        
+      }
+    },
   },
   plugins: [],
 }
