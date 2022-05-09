@@ -1,5 +1,7 @@
 import React from "react";
+import Categories from "../components/categories/Categories";
 import LatestDiscountCouponCode from "../components/latestDiscountCouponCode/LatestDiscountCouponCode";
+import OrganicProductCard from "../components/organicProductCard/OrganicProductCard.js";
 import Slider from "../components/slider/Slider";
 
 function Home() {
@@ -16,8 +18,10 @@ function Home() {
                 <LatestDiscountCouponCode/>
               </div>
             </div>
+            <OrganicProductCard/>
           </div>
         </div>
+        <Categories/>
       </div>
     </div>
   );

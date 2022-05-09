@@ -267,10 +267,10 @@ function Navigation() {
                                 <div className="flex flex-col w-full h-full bg-white cursor-pointer scrollbar-hide">
                                   <div className="w-full max-h-full">
                                     <div className="relative grid gap-2 p-6">
-                                      {solutions.map((item) => (
+                                      {solutions.map((item , index) => (
 
                                         <span
-                                          key={item.name}
+                                          key={index}
                                           href={item.href}
                                           className=" p-2 flex items-center rounded-md hover:bg-gray-50 w-full hover:text-emerald-600"
                                         >
@@ -378,8 +378,8 @@ function Navigation() {
                             <Popover.Panel className="absolute z-10 -ml-1 mt-1 transform w-screen max-w-xs bg-white">
                               <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-y-scroll flex-grow scrollbar w-full h-full">
                                 <div className="relative grid gap-2  px-6 py-6 ">
-                                  {resources.map((item) => (
-                                  <span className="p-2 flex  items-center rounded-md hover:bg-gray-50 w-full hover:text-emerald-600">
+                                  {resources.map((item , index) => (
+                                  <span key={index} className="p-2 flex  items-center rounded-md hover:bg-gray-50 w-full hover:text-emerald-600">
                                        <item.icon
                                         className="flex-shrink-0 h-4 w-4 "
                                         aria-hidden="true"
