@@ -31,59 +31,9 @@ import category8 from "../../assets/icon/category-8.png";
 import category9 from "../../assets/icon/category-9.png";
 import category10 from "../../assets/icon/category-10.png";
 import SubMenu from "../subMenu";
+import { CategoriesData } from "../../fakeData/CategoriesData";
 
-const solutions = [
-  {
-    name: "Fish & Meat",
-    icon: category1,
-    category:[{name:"kaya"},{name:"deli"}]
-  },
-  {
-    name: "Frutis & Vegatable",
-    icon: category2,
-    category:[{name:"samet"}]
-  },
-  {
-    name: "Fresh Seafood",
-    icon: category3,
-    category:[{name:"hayat"}]
-  },
-  {
-    name: "Cooking Essentials",
-    icon: category4,
-    category:[{name:"yaşam"}]
-  },
-  {
-    name: "Breakfast",
-    icon: category5,
-    category:[{name:"sevgi"}]
-  },
-  {
-    name: "Drinks",
-    icon: category6,
-    category:[{name:"yaşamlar"}]
-  },
-  {
-    name: "Milk & Dairy",
-    icon: category7,
-    category:[{name:"genç"}]
-  },
-  {
-    name: "Organic Food",
-    icon: category8,
-    category:[{name:"yavru"}]
-  },
-  {
-    name: "Honey",
-    icon: category9,
-    category:[{name:"tavuk"}]
-  },
-  {
-    name: "Sauces & Pickles",
-    icon: category10,
-    category:[{name:"sığır"},{name:"sığır"}]
-  },
-];
+
 
 const resources = [
   {
@@ -267,11 +217,11 @@ function Navigation() {
                                 <div className="flex flex-col w-full h-full bg-white cursor-pointer scrollbar-hide">
                                   <div className="w-full max-h-full">
                                     <div className="relative grid gap-2 p-6">
-                                      {solutions.map((item , index) => (
+                                      {CategoriesData.map((category , index) => (
 
                                         <span
                                           key={index}
-                                          href={item.href}
+                                         
                                           className=" p-2 flex items-center rounded-md hover:bg-gray-50 w-full hover:text-emerald-600"
                                         >
                                           <span
@@ -291,7 +241,7 @@ function Navigation() {
                                             }}
                                           >
                                             <img
-                                              src={item.icon}
+                                              src={category.icon}
                                               style={{
                                                 inset: " 0px",
                                                 boxSizing: " border-box",
@@ -312,7 +262,7 @@ function Navigation() {
                                             className=" ml-3 inline-flex items-center justify-between w-full hover:text-emerald-600
                                           "
                                           >
-                                            {item.name}
+                                            {category.name}
                                             <span className="transition duration-700 ease-in-out inline loading-none items-end text-gray-400">
                                               <svg
                                                 stroke="currentColor"
