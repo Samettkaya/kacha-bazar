@@ -7,16 +7,16 @@ function Footer() {
   return (
     <>
       <div className="hidden relative lg:block mx-auto max-w-screen-2xl py-6 px-3 sm:px-10">
-        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 mx-auto">
           <div className=" border-r border-gray-200 py-1 flex items-center justify-center bg-white">
             <div className="mr-3">
               <svg
                 stroke="currentColor"
                 fill="none"
-                stroke-width="2"
+                strokeWidth="2"
                 viewBox="0 0 24 24"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="flex-shrink-0 h-4 w-4 text-emerald-600"
                 aria-hidden="true"
                 height="1em"
@@ -40,10 +40,10 @@ function Footer() {
               <svg
                 stroke="currentColor"
                 fill="none"
-                stroke-width="2"
+                strokeWidth="2"
                 viewBox="0 0 24 24"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="flex-shrink-0 h-4 w-4 text-emerald-600"
                 aria-hidden="true"
                 height="1em"
@@ -64,10 +64,10 @@ function Footer() {
               <svg
                 stroke="currentColor"
                 fill="none"
-                stroke-width="2"
+                strokeWidth="2"
                 viewBox="0 0 24 24"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="flex-shrink-0 h-4 w-4 text-emerald-600"
                 aria-hidden="true"
                 height="1em"
@@ -89,10 +89,10 @@ function Footer() {
               <svg
                 stroke="currentColor"
                 fill="none"
-                stroke-width="2"
+                strokeWidth="2"
                 viewBox="0 0 24 24"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="flex-shrink-0 h-4 w-4 text-emerald-600"
                 aria-hidden="true"
                 height="1em"
@@ -131,7 +131,7 @@ function Footer() {
                     <ul className="text-sm flex flex-col space-y-3" key={index}>
                       {data.title.map((title, index) => {
                         return (
-                          <li className="flex items-baseline">
+                          <li key={index} className="flex items-baseline">
                             <Link
                               className="text-gray-600 inline-block w-full hover:text-emerald-500"
                               to={title.href}
@@ -167,7 +167,7 @@ function Footer() {
                   </span>
                 </Link>
 
-                <p class="leading-7 font-sans text-sm text-gray-600 mt-3">
+                <p className="leading-7 font-sans text-sm text-gray-600 mt-3">
                   <span>
                     987 Andre Plain Suite High Street 838, <br /> Lake
                     Hestertown, USA
@@ -275,7 +275,7 @@ function Footer() {
                         </svg>
                       </a>
                     </li>
-                    <li className="flex items-center mr-3 transition ease-in-out duration-500">
+                    <li className="flex items-center mr-S3 transition ease-in-out duration-500">
                       <a
                         aria-label="Social Link"
                         rel="noreferrer"
