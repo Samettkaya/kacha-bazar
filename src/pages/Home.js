@@ -19,21 +19,16 @@ function Home() {
                 <Slider />
               </div>
               <div className="w-full hidden lg:flex">
-                <LatestDiscountCouponCode/>
+                <LatestDiscountCouponCode />
               </div>
-          
             </div>
-            <OrganicProductCard/>
+            <OrganicProductCard />
           </div>
         </div>
 
+        <Categories />
 
-        <div className="bg-gray-100 lg:py-16 py-10"> 
-          <PopularProduct/> 
-        </div>
-
-        <Categories/>
-
+        <PopularProduct />
       </div>
     </div>
   );
