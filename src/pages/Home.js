@@ -29,20 +29,11 @@ function Home() {
 
         <Categories />
 
-
         <PopularProduct />
 
-        <div className="bg-gray-100 lg:py-16 py-10"> 
-          <PopularProduct/> 
-        </div>
+        <FastDeliveryCard />
 
-        <Categories/>
-
-        <FastDeliveryCard/>
-
-
-
-
+     
       </div>
     </div>
   );
