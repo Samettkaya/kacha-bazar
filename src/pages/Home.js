@@ -1,5 +1,6 @@
 import React from "react";
 import Categories from "../components/categories/Categories";
+import FastDeliveryCard from "../components/fastDeliveryCard/FastDeliveryCard";
 import LatestDiscountCouponCode from "../components/latestDiscountCouponCode/LatestDiscountCouponCode";
 
 import PopularProduct from "../components/popularProduct/PopularProduct";
@@ -28,7 +29,20 @@ function Home() {
 
         <Categories />
 
+
         <PopularProduct />
+
+        <div className="bg-gray-100 lg:py-16 py-10"> 
+          <PopularProduct/> 
+        </div>
+
+        <Categories/>
+
+        <FastDeliveryCard/>
+
+
+
+
       </div>
     </div>
   );
