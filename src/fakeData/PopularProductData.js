@@ -1,0 +1,336 @@
+function importAll(r) {
+    let images = {};
+    r.keys().map((item) => { images[item.replace('./', '')] = r(item); });
+    return images;
+  }
+  
+  const images = importAll(require.context('../assets/img', false, /\.(png|jpe?g|svg)$/));
+  
+ 
+
+export const PopularProductData = [
+  {
+    id: 1,
+    title: "Green Leaf Lettuce",
+    unit: "each",
+    description:
+      "Most fresh vegetables are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat. ... The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips. Stem vegetables include asparagus and kohlrabi.",
+    price: 14,
+    oldPrice: 0,
+    sales: 0,
+    sku: "F001",
+    stock: 6,
+    img: images['product-1.png'],
+    category: "Fresh Vegetable",
+    tag: [
+      { id: 1, name: "lettuce" },
+      { id: 2, name: "fresh vegetable" },
+    ],
+  },
+  {
+    id: 2,
+    title: "Rainbow Chard",
+    unit: "1lb",
+    description:
+      "Most fresh vegetables are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat. ... The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips. Stem vegetables include asparagus and kohlrabi.",
+    price: 12,
+    oldPrice: 0,
+    sales: 0,
+    sku: "9AF4FD",
+    stock: 0,
+    img: images['product-2.png'],
+    category: "Fresh Vegetable",
+    tag: [
+      { id: 1, name: "rainbow-chard" },
+      { id: 2, name: "fresh vegetable" },
+    ],
+  },
+  {
+    id: 3,
+    title: "Clementine",
+    unit: "5ct",
+    description:
+      "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits.",
+    price: 13,
+    oldPrice: 0,
+    sales: 0,
+    sku: "9AF4FC",
+    stock: 0,
+    img: images['product-3.png'],
+    category: "Fresh Fruits",
+    tag: [
+      { id: 1, name: "clementine" },
+      { id: 2, name: "fresh fruits" },
+    ],
+  },
+  {
+    id: 4,
+    title: "Rainbow Peppers",
+    unit: "4ct",
+    description:
+      "Most fresh vegetables are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat. ... The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips. Stem vegetables include asparagus and kohlrabi.",
+    price: 15,
+    oldPrice: 0,
+    sales: 0,
+    sku: "9AF4FA",
+    stock: 52,
+    img: images['product-4.png'],
+    category: "Fresh Vegetable",
+    tag: [
+      { id: 1, name: "rainbow-peppers" },
+      { id: 2, name: "fresh vegetable" },
+    ],
+  },
+  {
+    id: 5,
+    title: "Blueberry",
+    unit: "25qt",
+    description:
+      "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits.",
+    price: 13,
+    oldPrice: 0,
+    sales: 0,
+    sku: "9AF4F9",
+    stock: 99,
+    img: images['product-5.png'],
+    category: "Fresh Fruits",
+    tag: [
+      { id: 1, name: "blueberries" },
+      { id: 2, name: "fresh fruits" },
+    ],
+  },
+  {
+    id: 6,
+    title: "Calabaza Squash",
+    unit: "each",
+    description:
+      "Most fresh vegetables are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat. ... The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips. Stem vegetables include asparagus and kohlrabi.",
+    price: 15,
+    oldPrice: 0,
+    sales: 0,
+    sku: "9AF4F8",
+    stock: 59,
+    img: images['product-6.png'],
+    category: "Fresh Vegetable",
+    tag: [
+      { id: 1, name: "calabaza-squash" },
+      { id: 2, name: "fresh vegetable" },
+    ],
+  },
+  {
+    id: 7,
+    title: "Lettuce",
+    unit: "1lb",
+    description:
+      "Most fresh vegetables are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat. ... The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips. Stem vegetables include asparagus and kohlrabi.",
+    price: 14,
+    oldPrice: 0,
+    sales: 0,
+    sku: " 9AF4F7",
+    stock: 103,
+    img: images['product-7.png'],
+    category: "Fresh Vegetable",
+    tag: [
+      { id: 1, name: "lettuce" },
+      { id: 2, name: "fresh vegetable" },
+    ],
+  },
+  {
+    id: 8,
+    title: "Radicchio",
+    unit: "12ct",
+    description:
+      "Most fresh vegetables are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat. ... The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips. Stem vegetables include asparagus and kohlrabi.",
+    price: 15,
+    oldPrice: 0,
+    sales: 0,
+    sku: "F0056",
+    stock: 0,
+    img: images['product-8.png'],
+    category: "Fresh Vegetable",
+    tag: [
+      { id: 1, name: "radicchio" },
+      { id: 2, name: "fresh vegetable" },
+    ],
+  },
+  {
+    id: 9,
+    title: "Parsley",
+    unit: "each",
+    description:
+      "Most fresh vegetables are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat. ... The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips. Stem vegetables include asparagus and kohlrabi.",
+    price: 12,
+    oldPrice: 0,
+    sales: 0,
+    sku: "9AF4F5",
+    stock: 97,
+    img: images['product-9.png'],
+    category: "Fresh Vegetable",
+    tag: [
+      { id: 1, name: "parsley" },
+      { id: 2, name: "fresh vegetable" },
+    ],
+  },
+  {
+    id: 10,
+    title: "Strawberrie",
+    unit: "25oz",
+    description:
+      "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits.",
+    price: 13,
+    oldPrice: 0,
+    sales: 0,
+    sku: "9AF4F4",
+    stock: 47,
+    img: images['product-10.png'],
+    category: "Fresh Fruits",
+    tag: [
+      { id: 1, name: "strawberries" },
+      { id: 2, name: "fresh fruits" },
+    ],
+  },
+  {
+    id: 11,
+    title: "Cauliflower",
+    unit: "35lb",
+    description:
+      "Most fresh vegetables are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat. ... The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips. Stem vegetables include asparagus and kohlrabi.",
+    price: 15,
+    oldPrice: 0,
+    sales: 0,
+    sku: "9AF4F3",
+    stock: 90,
+    img: images['product-11.png'],
+    category: "Fresh Vegetable",
+    tag: [
+      { id: 1, name: "cauliflower" },
+      { id: 2, name: "fresh vegetable" },
+    ],
+  },
+  {
+    id: 12,
+    title: "Organic Purple Cauliflower",
+    unit: "1lb",
+    description:
+      "Most fresh vegetables are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat. ... The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips. Stem vegetables include asparagus and kohlrabi.",
+    price: 11,
+    oldPrice: 0,
+    sales: 0,
+    sku: "9AF4F2",
+    stock: 90,
+    img: images['product-12.png'],
+    category: "Fresh Vegetable",
+    tag: [
+      { id: 1, name: "cauliflower" },
+      { id: 2, name: "fresh vegetable" },
+    ],
+  },
+  {
+    id: 13,
+    title: "Ahold Acorn Squash",
+    unit: "1ct",
+    description:
+      "Most fresh vegetables are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat. ... The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips. Stem vegetables include asparagus and kohlrabi.",
+    price: 15,
+    oldPrice: 0,
+    sales: 0,
+    sku: "9AF4F1",
+    stock: 0,
+    img: images['product-13.png'],
+    category: "Fresh Vegetable",
+    tag: [
+      { id: 1, name: "squash" },
+      { id: 2, name: "fresh vegetable" },
+    ],
+  },
+  {
+    id: 14,
+    title: "Bok Choy Cabbage",
+    unit: "1lb",
+    description:
+      "Most fresh vegetables are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat. ... The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips. Stem vegetables include asparagus and kohlrabi.",
+    price: 15,
+    oldPrice: 0,
+    sales: 0,
+    sku: "9AF4F1",
+    stock: 97,
+    img: images['product-14.png'],
+    category: "Fresh Vegetable",
+    tag: [
+      { id: 1, name: "cabbage" },
+      { id: 2, name: "fresh vegetable" },
+    ],
+  },
+  {
+    id: 15,
+    title: "Strawberries Package",
+    unit: "25oz",
+    description:
+      "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits.",
+    price: 14,
+    oldPrice: 0,
+    sales: 0,
+    sku: "9AF4EF",
+    stock: 86,
+    img: images['product-15.png'],
+    category: " Fresh Fruits",
+    tag: [
+      { id: 1, name: "strawberries" },
+      { id: 2, name: "fresh fruits" },
+    ],
+  },
+  {
+    id: 16,
+    title: "Aloe Vera Leaf",
+    unit: "each",
+    description:
+      "Most fresh vegetables are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat. ... The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips. Stem vegetables include asparagus and kohlrabi.",
+    price: 15,
+    oldPrice: 0,
+    sales: 0,
+    sku: "9AF4EE",
+    stock: 65,
+    img: images['product-16.png'],
+    category: "Fresh Vegetable",
+    tag: [
+      { id: 1, name: "aloe-vera-leaf" },
+      { id: 2, name: "fresh vegetable" },
+    ],
+  },
+  {
+    id: 17,
+    title: "Pineapple Imported",
+    unit: "5lb",
+    description:
+      "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits",
+    price: 12,
+    oldPrice: 0,
+    sales: 0,
+    sku: "9AF4ED",
+    stock: 70,
+    img: images['product-17.png'],
+    category: "Fresh Fruits",
+    tag: [
+      { id: 1, name: "pineapple" },
+      { id: 2, name: "fresh fruits" },
+    ],
+  },
+  {
+    id: 18,
+    title: "Organic Broccoli",
+    unit: "10oz",
+    description:
+      "Most fresh vegetables are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat. ... The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips. Stem vegetables include asparagus and kohlrabi.",
+    price: 12,
+    oldPrice: 0,
+    sales: 0,
+    sku: "9AF4EC",
+    stock: 110,
+    img: images['product-18.png'],
+    category: "Fresh Vegetable",
+    tag: [
+      { id: 1, name: "broccoli" },
+      { id: 2, name: "fresh vegetable" },
+    ],
+  },
+];
