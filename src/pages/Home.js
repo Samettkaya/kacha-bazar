@@ -2,11 +2,8 @@ import React from "react";
 import Categories from "../components/categories/Categories";
 import FastDeliveryCard from "../components/fastDeliveryCard/FastDeliveryCard";
 import LatestDiscountCouponCode from "../components/latestDiscountCouponCode/LatestDiscountCouponCode";
-
 import PopularProduct from "../components/popularProduct/PopularProduct";
-
 import OrganicProductCard from "../components/organicProductCard/OrganicProductCard.js";
-
 import Slider from "../components/slider/Slider";
 
 function Home() {
@@ -32,8 +29,6 @@ function Home() {
         <PopularProduct />
 
         <FastDeliveryCard />
-
-     
       </div>
     </div>
   );
