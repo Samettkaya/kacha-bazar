@@ -20,7 +20,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "F001",
     stock: 6,
-    img: images['product-1.png'],
+    images: [{id:1,small:images['product-1.png']},{id:2,medium:images['Green-Leaf-Lettuce-each-2x.png']}],
     category: "Fresh Vegetable",
     tag: [
       { id: 1, name: "lettuce" },
@@ -38,7 +38,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "9AF4FD",
     stock: 0,
-    img: images['product-2.png'],
+    images: [{id:1,small:images['product-2.png']},{id:2,medium:images['Rainbow-Chard-Package-per-lb-2x.png']}],
     category: "Fresh Vegetable",
     tag: [
       { id: 1, name: "rainbow-chard" },
@@ -56,7 +56,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "9AF4FC",
     stock: 0,
-    img: images['product-3.png'],
+    images: [{id:1,small:images['product-3.png']},{id:2,medium:images['Clementine-5ct-2x.png']}],
     category: "Fresh Fruits",
     tag: [
       { id: 1, name: "clementine" },
@@ -74,7 +74,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "9AF4FA",
     stock: 52,
-    img: images['product-4.png'],
+    images: [{id:1,small:images['product-4.png']},{id:2,medium:images['Rainbow-Peppers-4ct-2x.png']}],
     category: "Fresh Vegetable",
     tag: [
       { id: 1, name: "rainbow-peppers" },
@@ -92,7 +92,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "9AF4F9",
     stock: 99,
-    img: images['product-5.png'],
+    images: [{id:1,small:images['product-5.png']},{id:2,medium:images['Blackberries-1-25-qt-2x.png']}],
     category: "Fresh Fruits",
     tag: [
       { id: 1, name: "blueberries" },
@@ -110,7 +110,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "9AF4F8",
     stock: 59,
-    img: images['product-6.png'],
+    images: [{id:1,small:images['product-6.png']},{id:2,medium:images['Calabaza-Squash-Package-each-2x.png']}],
     category: "Fresh Vegetable",
     tag: [
       { id: 1, name: "calabaza-squash" },
@@ -128,7 +128,7 @@ export const PopularProductData = [
     sales: 0,
     sku: " 9AF4F7",
     stock: 103,
-    img: images['product-7.png'],
+    images: [{id:1,small:images['product-7.png']},{id:2,medium:images['Lettuce-1lb-2x.png']}],
     category: "Fresh Vegetable",
     tag: [
       { id: 1, name: "lettuce" },
@@ -146,7 +146,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "F0056",
     stock: 0,
-    img: images['product-8.png'],
+    images: [{id:1,small:images['product-8.png']},{id:2,medium:images['Radicchio-12ct-2x.png']}],
     category: "Fresh Vegetable",
     tag: [
       { id: 1, name: "radicchio" },
@@ -164,7 +164,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "9AF4F5",
     stock: 97,
-    img: images['product-9.png'],
+    images: [{id:1,small:images['product-9.png']},{id:2,medium:images['Parsley-each-2x.png']}],
     category: "Fresh Vegetable",
     tag: [
       { id: 1, name: "parsley" },
@@ -182,7 +182,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "9AF4F4",
     stock: 47,
-    img: images['product-10.png'],
+    images: [{id:1,small:images['product-10.png']},{id:2,medium:images['Strawberries-9-25oz-2x.png']}],
     category: "Fresh Fruits",
     tag: [
       { id: 1, name: "strawberries" },
@@ -200,7 +200,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "9AF4F3",
     stock: 90,
-    img: images['product-11.png'],
+    images: [{id:1,small:images['product-11.png']},{id:2,medium:images['Cauliflower-1-35lb-2x.png']}],
     category: "Fresh Vegetable",
     tag: [
       { id: 1, name: "cauliflower" },
@@ -218,7 +218,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "9AF4F2",
     stock: 90,
-    img: images['product-12.png'],
+    images: [{id:1,small:images['product-12.png']},{id:2,medium:images['Organic-Purple-Cauliflower-1lb-2x.png']}],
     category: "Fresh Vegetable",
     tag: [
       { id: 1, name: "cauliflower" },
@@ -236,7 +236,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "9AF4F1",
     stock: 0,
-    img: images['product-13.png'],
+    images: [{id:1,small:images['product-13.png']},{id:2,medium:images['Ahold-Acorn-Squash-1ct-2x.png']}],
     category: "Fresh Vegetable",
     tag: [
       { id: 1, name: "squash" },
@@ -254,7 +254,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "9AF4F1",
     stock: 97,
-    img: images['product-14.png'],
+    images: [{id:1,small:images['product-14.png']},{id:2,medium:images['Bok-Choy-Cabbage-per-lb-2x.png']}],
     category: "Fresh Vegetable",
     tag: [
       { id: 1, name: "cabbage" },
@@ -272,7 +272,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "9AF4EF",
     stock: 86,
-    img: images['product-15.png'],
+    images: [{id:1,small:images['product-15.png']},{id:2,medium:images['Strawberries-Package-2-25-oz-2x.png']}],
     category: " Fresh Fruits",
     tag: [
       { id: 1, name: "strawberries" },
@@ -290,7 +290,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "9AF4EE",
     stock: 65,
-    img: images['product-16.png'],
+    images: [{id:1,small:images['product-16.png']},{id:2,medium:images['Aloe-Vera-Leaf-each-2x.png']}],
     category: "Fresh Vegetable",
     tag: [
       { id: 1, name: "aloe-vera-leaf" },
@@ -308,7 +308,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "9AF4ED",
     stock: 70,
-    img: images['product-17.png'],
+    images: [{id:1,small:images['product-17.png']},{id:2,medium:images['Pineapple-1-5lb-2x.png']}],
     category: "Fresh Fruits",
     tag: [
       { id: 1, name: "pineapple" },
@@ -326,7 +326,7 @@ export const PopularProductData = [
     sales: 0,
     sku: "9AF4EC",
     stock: 110,
-    img: images['product-18.png'],
+    images: [{id:1,small:images['product-18.png']},{id:2,medium:images['Organic-Broccoli-10oz-2x.png']}],
     category: "Fresh Vegetable",
     tag: [
       { id: 1, name: "broccoli" },

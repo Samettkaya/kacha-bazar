@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import Modal from "../modal/Modal";
 function Card({ data }) {
+  let [isOpen, setIsOpen] = useState(false)
+
+  function closeModal() {
+    setIsOpen(false)
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
   return (
-    <div className="group box-border overflow-hidden flex rounded-md shadow-sm pe-0 flex-col items-center bg-white relative">
-      <div className="relative flex justify-center w-full cursor-pointer">
+    <> <div className="group box-border overflow-hidden flex rounded-md shadow-sm pe-0 flex-col items-center bg-white relative">
+      <div onClick={openModal} className="relative flex justify-center w-full cursor-pointer">
         {data.sales === 0 ? (
           ""
         ) : (
@@ -62,7 +72,7 @@ function Card({ data }) {
             />
           </span>
           <img
-            src={data.img}
+            src={data.images[0].small}
             decoding="async"
             data-nimg="intrinsic"
             className="object-cover transition duration-150 ease-linear transform group-hover:scale-105"
@@ -116,6 +126,9 @@ function Card({ data }) {
         </div>
       </div>
     </div>
+    <Modal data={data} isOpen={isOpen} closeModal={closeModal} />
+    </>
+   
   );
 }
 
