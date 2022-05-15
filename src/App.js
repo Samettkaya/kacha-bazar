@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 
 import Footer from "./components/footer/Footer";
 import MobileApp from "./components/mobileApp/MobileApp";
+import Product from "./components/product/Product";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
 
         <Route path="about-us" element={<About />} />
         <Route path="contact-us" element={<Contact />} />
-
+        <Route path={"product/:productTitle"} element={<Product />} />
+        <Route path="*" element={<Home/>} />
       </Routes>
       <div className="w-full">
         <MobileApp />
