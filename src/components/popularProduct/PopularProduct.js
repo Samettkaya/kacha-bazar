@@ -1,4 +1,5 @@
 import React from "react";
+import { PopularProductData } from "../../fakeData/PopularProductData";
 import Card from "../card/Card";
 
 function PopularProduct() {
@@ -15,11 +16,19 @@ function PopularProduct() {
           <p className="text-base text-gray-600 leading-6">
             See all our popular products in this week. You can choose your daily
             needs products from this list and get some special offer with free
-            shipping. 
+            shipping.
           </p>
         </div>
       </div>
-      <Card />
+      <div className="flex">
+        <div className="w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-2 md:gap-3 lg:gap-3 ">
+            {PopularProductData.map((data, index) => (
+              <Card key={index} data={data} />
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
