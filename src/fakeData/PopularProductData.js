@@ -22,6 +22,7 @@ export const PopularProductData = [
     stock: 6,
     images: [{id:1,small:images['product-1.png']},{id:2,medium:images['Green-Leaf-Lettuce-each-2x.png']}],
     category: "Fresh Vegetable",
+    href: "green-leaf-lettuce",
     tag: [
       { id: 1, name: "lettuce" },
       { id: 2, name: "fresh vegetable" },
@@ -40,6 +41,7 @@ export const PopularProductData = [
     stock: 0,
     images: [{id:1,small:images['product-2.png']},{id:2,medium:images['Rainbow-Chard-Package-per-lb-2x.png']}],
     category: "Fresh Vegetable",
+    href:"rainbow-chard",
     tag: [
       { id: 1, name: "rainbow-chard" },
       { id: 2, name: "fresh vegetable" },
@@ -58,6 +60,7 @@ export const PopularProductData = [
     stock: 0,
     images: [{id:1,small:images['product-3.png']},{id:2,medium:images['Clementine-5ct-2x.png']}],
     category: "Fresh Fruits",
+    href:"clementine",
     tag: [
       { id: 1, name: "clementine" },
       { id: 2, name: "fresh fruits" },
@@ -76,6 +79,7 @@ export const PopularProductData = [
     stock: 52,
     images: [{id:1,small:images['product-4.png']},{id:2,medium:images['Rainbow-Peppers-4ct-2x.png']}],
     category: "Fresh Vegetable",
+    href: "rainbow-peppers",
     tag: [
       { id: 1, name: "rainbow-peppers" },
       { id: 2, name: "fresh vegetable" },
@@ -94,6 +98,7 @@ export const PopularProductData = [
     stock: 99,
     images: [{id:1,small:images['product-5.png']},{id:2,medium:images['Blackberries-1-25-qt-2x.png']}],
     category: "Fresh Fruits",
+    href:"blueberry",
     tag: [
       { id: 1, name: "blueberries" },
       { id: 2, name: "fresh fruits" },
@@ -112,6 +117,7 @@ export const PopularProductData = [
     stock: 59,
     images: [{id:1,small:images['product-6.png']},{id:2,medium:images['Calabaza-Squash-Package-each-2x.png']}],
     category: "Fresh Vegetable",
+    href: "calabazasquash",
     tag: [
       { id: 1, name: "calabaza-squash" },
       { id: 2, name: "fresh vegetable" },
@@ -130,6 +136,7 @@ export const PopularProductData = [
     stock: 103,
     images: [{id:1,small:images['product-7.png']},{id:2,medium:images['Lettuce-1lb-2x.png']}],
     category: "Fresh Vegetable",
+    href: "lettuce",
     tag: [
       { id: 1, name: "lettuce" },
       { id: 2, name: "fresh vegetable" },
@@ -148,6 +155,7 @@ export const PopularProductData = [
     stock: 0,
     images: [{id:1,small:images['product-8.png']},{id:2,medium:images['Radicchio-12ct-2x.png']}],
     category: "Fresh Vegetable",
+    href: "radicchio",
     tag: [
       { id: 1, name: "radicchio" },
       { id: 2, name: "fresh vegetable" },
@@ -166,6 +174,7 @@ export const PopularProductData = [
     stock: 97,
     images: [{id:1,small:images['product-9.png']},{id:2,medium:images['Parsley-each-2x.png']}],
     category: "Fresh Vegetable",
+    href: "parsley",
     tag: [
       { id: 1, name: "parsley" },
       { id: 2, name: "fresh vegetable" },
@@ -184,6 +193,7 @@ export const PopularProductData = [
     stock: 47,
     images: [{id:1,small:images['product-10.png']},{id:2,medium:images['Strawberries-9-25oz-2x.png']}],
     category: "Fresh Fruits",
+    href: "strawberrie",
     tag: [
       { id: 1, name: "strawberries" },
       { id: 2, name: "fresh fruits" },
@@ -202,6 +212,7 @@ export const PopularProductData = [
     stock: 90,
     images: [{id:1,small:images['product-11.png']},{id:2,medium:images['Cauliflower-1-35lb-2x.png']}],
     category: "Fresh Vegetable",
+    href: "cauliflower",
     tag: [
       { id: 1, name: "cauliflower" },
       { id: 2, name: "fresh vegetable" },
@@ -220,6 +231,7 @@ export const PopularProductData = [
     stock: 90,
     images: [{id:1,small:images['product-12.png']},{id:2,medium:images['Organic-Purple-Cauliflower-1lb-2x.png']}],
     category: "Fresh Vegetable",
+    href: "organic-purple-cauliflower",
     tag: [
       { id: 1, name: "cauliflower" },
       { id: 2, name: "fresh vegetable" },
@@ -238,6 +250,7 @@ export const PopularProductData = [
     stock: 0,
     images: [{id:1,small:images['product-13.png']},{id:2,medium:images['Ahold-Acorn-Squash-1ct-2x.png']}],
     category: "Fresh Vegetable",
+    href: "ahold-acorn-squash",
     tag: [
       { id: 1, name: "squash" },
       { id: 2, name: "fresh vegetable" },
@@ -256,6 +269,7 @@ export const PopularProductData = [
     stock: 97,
     images: [{id:1,small:images['product-14.png']},{id:2,medium:images['Bok-Choy-Cabbage-per-lb-2x.png']}],
     category: "Fresh Vegetable",
+    href: "bok-choy-cabbage",
     tag: [
       { id: 1, name: "cabbage" },
       { id: 2, name: "fresh vegetable" },
@@ -274,6 +288,7 @@ export const PopularProductData = [
     stock: 86,
     images: [{id:1,small:images['product-15.png']},{id:2,medium:images['Strawberries-Package-2-25-oz-2x.png']}],
     category: " Fresh Fruits",
+    href: "strawberries-hackage",
     tag: [
       { id: 1, name: "strawberries" },
       { id: 2, name: "fresh fruits" },
@@ -292,6 +307,7 @@ export const PopularProductData = [
     stock: 65,
     images: [{id:1,small:images['product-16.png']},{id:2,medium:images['Aloe-Vera-Leaf-each-2x.png']}],
     category: "Fresh Vegetable",
+    href: "aloe-vera-leaf",
     tag: [
       { id: 1, name: "aloe-vera-leaf" },
       { id: 2, name: "fresh vegetable" },
@@ -310,6 +326,7 @@ export const PopularProductData = [
     stock: 70,
     images: [{id:1,small:images['product-17.png']},{id:2,medium:images['Pineapple-1-5lb-2x.png']}],
     category: "Fresh Fruits",
+    href: "pineapple-imported",
     tag: [
       { id: 1, name: "pineapple" },
       { id: 2, name: "fresh fruits" },
@@ -328,9 +345,18 @@ export const PopularProductData = [
     stock: 110,
     images: [{id:1,small:images['product-18.png']},{id:2,medium:images['Organic-Broccoli-10oz-2x.png']}],
     category: "Fresh Vegetable",
+    href: "organic-broccoli",
     tag: [
       { id: 1, name: "broccoli" },
       { id: 2, name: "fresh vegetable" },
     ],
   },
 ];
+
+export function getProductById(title){
+  return PopularProductData.find((product)=>product.title.toLowerCase() === title.split("-").join(" "))
+}
+
+export function getProductByCategory(title){
+  return PopularProductData.filter((product)=>product.category === title)
+}
