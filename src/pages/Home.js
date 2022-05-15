@@ -5,6 +5,8 @@ import LatestDiscountCouponCode from "../components/latestDiscountCouponCode/Lat
 import PopularProduct from "../components/popularProduct/PopularProduct";
 import OrganicProductCard from "../components/organicProductCard/OrganicProductCard.js";
 import Slider from "../components/slider/Slider";
+import LatestDiscountedProduct from "../components/latestDiscountedProduct/LatestDiscountedProduct";
+
 
 function Home() {
   return (
@@ -27,8 +29,8 @@ function Home() {
         <Categories />
 
         <PopularProduct />
-
         <FastDeliveryCard />
+        <LatestDiscountedProduct/>
       </div>
     </div>
   );

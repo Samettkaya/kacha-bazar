@@ -8,7 +8,7 @@ function importAll(r) {
   
  
 
-export const DiscountedProductsData = [
+export const PopularProductData = [
   {
     id: 1,
     title: "Organic Bell Pepper",
@@ -337,7 +337,7 @@ export const DiscountedProductsData = [
 
 ];
 
-export const PopularProduct=[
+export const DiscountProductData=[
   
   {
     id: 1,
