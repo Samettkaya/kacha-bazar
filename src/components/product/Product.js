@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getProductByCategory, getProductById } from "../../fakeData/PopularProductData";
+import { getProductByCategory, getProductById } from "../../fakeData/ProductsData";
 import Card from "../card/Card";
 import Informations from "../informations/Informations";
 import SocialNetwork from "../socialNetwork/SocialNetwork";
@@ -61,7 +61,7 @@ function Product() {
                   <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
               </li>
-              <li class="text-sm px-1 transition duration-200 ease-in ">
+              <li className="text-sm px-1 transition duration-200 ease-in ">
                 {product.title}
               </li>
             </ol>
@@ -133,7 +133,7 @@ function Product() {
                       )}
                     </div>
                     <div>
-                      <p class="text-sm leading-6 text-gray-500 md:leading-7">
+                      <p className="text-sm leading-6 text-gray-500 md:leading-7">
                         {product.description}
                       </p>
                       <div className="flex items-center mt-4">

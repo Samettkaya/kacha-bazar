@@ -1,5 +1,6 @@
 import React from 'react'
-import {  DiscountProductData } from '../../fakeData/DiscountedProductsData'
+import { DiscountProductData } from '../../fakeData/ProductsData'
+
 import Card from '../card/Card'
 
 function LatestDiscountedProduct() {

@@ -6,12 +6,13 @@ import PopularProduct from "../components/popularProduct/PopularProduct";
 import OrganicProductCard from "../components/organicProductCard/OrganicProductCard.js";
 import Slider from "../components/slider/Slider";
 import LatestDiscountedProduct from "../components/latestDiscountedProduct/LatestDiscountedProduct";
-
+import Cart from "../components/cart/Cart";
 
 function Home() {
   return (
     <div className="bg-gray-50">
       <div className="min-h-screen">
+        <Cart/>  
         <div className="bg-white">
           <div className="mx-auto py-5 max-w-screen-2xl px-3 sm:px-10">
             <div className="flex w-full">
@@ -30,7 +31,7 @@ function Home() {
 
         <PopularProduct />
         <FastDeliveryCard />
-        <LatestDiscountedProduct/>
+        <LatestDiscountedProduct />
       </div>
     </div>
   );
