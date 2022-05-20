@@ -21,7 +21,7 @@ function Checkout() {
   return (
     <div className="bg-gray-50">
       <div className="mx-auto max-w-screen-2xl px-3 sm:px-10">
-        <div className="py-10 lg:py-12 px-0 2xl:mx-w-screen-2xl w-full xl:max-w-screen-xl flex flex-col md:flex-row lg:flex-row">
+        <div className="py-10 lg:py-12 px-0 2xl:max-w-screen-2xl w-full xl:max-w-screen-xl flex flex-col md:flex-row lg:flex-row">
           <div className="md:w-full lg:w-3/5 flex h-full flex-col order-2 sm:order-1 lg:order-1">
             <div className="mt-5 md:mt-0 md:col-span-2">
               <Formik
