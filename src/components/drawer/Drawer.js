@@ -344,14 +344,14 @@ function DrawerCart({ open, placement, setOpen }) {
 
           <div className="mx-5 my-3">
             <span>
-              <button className=" w-full py-3 px-3 rounded-lg bg-emerald-500 hover:bg-emerald-600 flex items-center justify-between bg-heading text-sm sm:text-base text-white focus:outline-none transition duration-300">
+              <Link to="/checkout" className=" w-full py-3 px-3 rounded-lg bg-emerald-500 hover:bg-emerald-600 flex items-center justify-between bg-heading text-sm sm:text-base text-white focus:outline-none transition duration-300">
                 <span className="align-middle font-medium ">
                   Proceed To Checkout
                 </span>
                 <span className="rounded-lg font-bold  py-2 px-3 bg-white text-emerald-600">
                   $13.00
                 </span>
-              </button>
+              </Link>
             </span>
           </div>
         </div>
