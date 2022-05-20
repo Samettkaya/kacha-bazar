@@ -29,7 +29,7 @@ function SocialNetwork() {
           <button
             quote="KachaBazar"
             aria-label="twitter"
-            class="react-share__ShareButton"
+            className="react-share__ShareButton"
             style={{backgroundColor: "transparent", border: "none",padding: "0px", font: "inherit", color: "inherit", cursor: "pointer"}}
           >
             <svg viewBox="0 0 64 64" width="32" height="32">

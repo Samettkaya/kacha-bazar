@@ -1,5 +1,6 @@
 import React from "react";
-import { PopularProductData } from "../../fakeData/PopularProductData";
+import { PopularProductData } from "../../fakeData/ProductsData";
+
 import Card from "../card/Card";
 
 function PopularProduct() {
