@@ -86,7 +86,7 @@ function Navigation() {
     <div className="sticky bg-emerald-500 top-0 z-20">
       <div className="max-w-screen-2xl mx-auto px-3 sm:px-10">
         <div className="h-16 top-bar lg:h-auto flex items-center justify-between py-4 mx-auto">
-          <Link to="/" className="mr-3 hidden xl:mr-12 md:hidden lg:block " >
+          <Link to="/" className="!no-underline mr-3 hidden xl:mr-12 md:hidden lg:block " >
             <span
               style={{
                 boxSizing: "border-box",
@@ -191,10 +191,10 @@ function Navigation() {
                           <Popover.Button
                             className={classNames(
                               // open ? "text-gray-900" : "text-gray-500",
-                              "group inline-flex items-center py-2  text-sm focus:outline-none  hover:text-emerald-600 "
+                              "group inline-flex items-center py-2  text-sm focus:outline-none text-black  hover:text-emerald-600 "
                             )}
                           >
-                            <span className="text-sm">Categories</span>
+                            <span className="text-sm ">Categories</span>
                             <ChevronDownIcon
                               className={classNames(
                                 "ml-1 h-3 w-3 group-hover:text-emerald-600"
@@ -295,8 +295,8 @@ function Navigation() {
                         </>
                       )}
                     </Popover>
-                    <Link className="text-sm hover:text-emerald-600"to="/about-us">About Us</Link>
-                    <Link className="text-sm hover:text-emerald-600"to="/contact-us"> Contact Us</Link>
+                    <Link className="text-sm !text-black !no-underline hover:!text-emerald-600"to="/about-us">About Us</Link>
+                    <Link className="text-sm !text-black !no-underline hover:!text-emerald-600"to="/contact-us"> Contact Us</Link>
                   
                     <Popover className="relative">
                       {({ open }) => (
@@ -304,10 +304,10 @@ function Navigation() {
                           <Popover.Button
                             className={classNames(
                               // open ? "text-gray-900" : "text-gray-500",
-                              "group bg-white rounded-md inline-flex items-center text-sm py-2 hover:text-emerald-600 "
+                              "group bg-white rounded-md inline-flex items-center text-sm py-2 text-black hover:text-emerald-600 "
                             )}
                           >
-                            <span>Pages</span>
+                            <span className="text-sm ">Pages</span>
                             <ChevronDownIcon
                               className={classNames(
                                 "ml-1 h-3 w-3 group-hover:text-emerald-600 "
@@ -329,15 +329,15 @@ function Navigation() {
                               <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-y-scroll flex-grow scrollbar w-full h-full">
                                 <div className="relative grid gap-2  px-6 py-6 ">
                                   {resources.map((item , index) => (
-                                  <span key={index} className="p-2 flex  items-center rounded-md hover:bg-gray-50 w-full hover:text-emerald-600">
+                                  <span key={index} className="p-2 flex  items-center rounded-md hover:!bg-gray-50 w-full hover:!text-emerald-600">
                                        <item.icon
                                         className="flex-shrink-0 h-4 w-4 "
                                         aria-hidden="true"
                                       />
                                      
-                                        <a href={item.href} className="inline-flex items-center justify-between ml-2 text-sm font-medium w-full hover:text-emerald-600">
+                                        <Link to={item.href} className="!text-black inline-flex items-center justify-between ml-2 text-sm font-medium w-full !no-underline hover:!text-emerald-600">
                                           {item.name}
-                                        </a>
+                                        </Link>
                                        
                                     
                                   </span>
@@ -351,28 +351,28 @@ function Navigation() {
                         </>
                       )}
                     </Popover>
-                    <a
-                      className="relative inline-flex items-center h-6 bg-red-100 font-serif ml-4 py-0 px-2 rounded text-sm font-medium text-red-500 hover:text-emerald-600"
-                      href="/offer"
+                    <Link
+                      className="relative inline-flex items-center h-6 !bg-red-100 font-serif ml-4 py-0 px-2 rounded text-sm font-medium !no-underline !text-red-500 hover:!text-emerald-600"
+                      to="/offer"
                     >
                       Offers
                       <div className="absolute flex w-2 h-2 left-auto -right-1 -top-1">
                         <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-red-400 opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                       </div>
-                    </a>
+                    </Link>
                   </Popover.Group>
                 </div>
               </div>
             </Popover>
           </div>
           <div className="flex">
-            <a className=" mx-4 py-2 text-sm cursor-pointer hover:text-emerald-600">
+            <Link to="/privacy-policy" className=" mx-4 py-2 text-sm cursor-pointer !no-underline !text-black hover:text-emerald-600">
               Privacy Policy
-            </a>
-            <a className=" mx-4 py-2 text-sm cursor-pointer hover:text-emerald-600">
+            </Link>
+            <Link to="/terms-and-conditions" className=" mx-4 py-2 text-sm cursor-pointer !no-underline !text-black hover:text-emerald-600">
               Terms & Conditions
-            </a>
+            </Link>
           </div>
         </div>
       </div>

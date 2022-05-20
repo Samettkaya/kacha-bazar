@@ -55,7 +55,7 @@ function Categories() {
                           return (
                             <li className="pt-1" key={index}>
                               <Link
-                                className=" flex items-center font-serif text-xs text-gray-400 hover:text-emerald-600 cursor-pointer "
+                                className=" flex items-center font-serif text-xs !no-underline !text-gray-400 hover:!text-emerald-600 cursor-pointer "
                                 to={subCategory.path}
                               >
                                 <svg

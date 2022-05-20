@@ -1,5 +1,5 @@
 import React from "react";
-
+import{ Link} from "react-router-dom"
 function Header() {
   return (
     <div className=" hidden lg:block bg-gray-100">
@@ -22,22 +22,22 @@ function Header() {
             </svg>
             We are available 24/7, Need help? Call Us:
             <a
-              className="font-bold text-emerald-500 ml-1"
+              className="font-bold !no-underline !text-emerald-500 ml-1"
               href="tel:+01234560352"
             >
               +01234560352
             </a>
           </span>
           <div className="flex items-center lg:text-right ">
-            <a className=" font-medium cursor-pointer hover:text-emerald-600">
+            <Link to="about-us" className=" !text-black !no-underline font-medium cursor-pointer hover:!text-emerald-600">
               About Us
-            </a>
+            </Link>
             <span className="mx-2">|</span>
-            <a  className=" font-medium cursor-pointer hover:text-emerald-600">Contact Us</a>
+            <Link  to="contact-us" className="!no-underline !text-black font-medium cursor-pointer hover:!text-emerald-600">Contact Us</Link>
             <span className="mx-2">|</span>
-            <a  className=" font-medium cursor-pointer hover:text-emerald-600">My account</a>
+            <Link to="/user/dashboard" className="!no-underline !text-black font-medium cursor-pointer hover:!text-emerald-600">My account</Link>
             <span className="mx-2">|</span>
-            <a className="flex items-center font-medium cursor-pointer hover:text-emerald-600 ">
+            <Link to="/login" className="!no-underline !text-black flex items-center font-medium cursor-pointer hover:!text-emerald-600 ">
               <span className="mr-1">
                 <svg
                   stroke="currentColor"
@@ -54,8 +54,8 @@ function Header() {
                   <circle cx="12" cy="7" r="4"></circle>
                 </svg>
               </span>
-              Loginnnn
-            </a>
+              Login
+            </Link>
           </div>
         </div>
       </div>

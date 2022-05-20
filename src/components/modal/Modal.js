@@ -60,8 +60,8 @@ export default function Modal({ isOpen, closeModal, data }) {
                     </div>
                     <div className="w-full flex flex-col p-5 md:p-8 text-left">
                       <div className="mb-2 md:mb-2.5 block -mt-1.5">
-                        <h1 className="text-heading text-lg md:text-xl lg:text-2xl font-semibold  hover:text-black cursor-pointer">
-                          <Link to={"/product/" + data.href}>{data.title}</Link>
+                        <h1 className="text-heading text-lg md:text-xl lg:text-2xl font-semibold !text-black !no-underline  cursor-pointer">
+                          <Link className="!no-underline  !text-black " to={"/product/" + data.href}>{data.title}</Link>
                         </h1>
                         {data.stock === 0 ? (
                           <span className="bg-red-100 text-red-600 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold  mt-2">
