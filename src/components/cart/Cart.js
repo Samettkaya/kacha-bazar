@@ -1,18 +1,19 @@
 import React from 'react'
 import DrawerCart from '../drawer/Drawer'
-
+import {  useDispatch } from 'react-redux'
+import { shoppingCardAction } from '../../store/reducers/shoppingCardSlice'
 function Cart() {
-    const [open, setOpen] = React.useState(false);
-    const [placement, setPlacement] = React.useState();
-  
-    const handleOpen = key => {
-      setOpen(true);
-      setPlacement(key);
+ 
+  const dispatch = useDispatch()
+    const handleOpen = () => {
+
+      dispatch(shoppingCardAction(true))
+
     };
   return (
     
  <>
-    <button  onClick={() => handleOpen('right')} aria-label="Cart" className="absolute">
+    <button  onClick={() => handleOpen()} aria-label="Cart" className="absolute">
     <div className="right-0 w-35 float-right fixed top-2/4 bottom-2/4 align-middle shadow-lg cursor-pointer z-30 hidden lg:block xl:block">
       <div className="flex flex-col items-center justify-center bg-indigo-50 rounded-tl-lg p-2 text-gray-700">
         <span className="text-2xl mb-1 text-emerald-600">
@@ -49,7 +50,7 @@ function Cart() {
     </div>
   </button>
 
-  <DrawerCart open={open} placement={placement} setOpen={setOpen}/>
+  <DrawerCart />
  </>
   )
 }

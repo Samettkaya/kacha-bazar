@@ -2,17 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Drawer } from "rsuite";
 import "rsuite/dist/rsuite.min.css";
-function DrawerCart({ open, placement, setOpen }) {
+import { useSelector,useDispatch } from 'react-redux'
+import { shoppingCardAction } from "../../store/reducers/shoppingCardSlice";
+function DrawerCart({  }) {
+  const open = useSelector((state) => state.shoppingCard.value)
+  const dispatch = useDispatch()
   return (
     <div>
       <Drawer
         size={"xs"}
-        placement={placement}
+        placement="right"
         open={open}
-        onClose={() => setOpen(false)}
+        onClose={() => dispatch(shoppingCardAction(false))}
       >
-        <div class="drawer-mask"></div>
-        <div class="flex flex-col w-full h-full justify-between items-middle bg-white rounded cursor-pointer">
+        <div className="drawer-mask"></div>
+        <div className="flex flex-col w-full h-full justify-between items-middle bg-white rounded cursor-pointer">
           <div className="w-full flex justify-between items-center relative px-5 py-4 border-b bg-indigo-50 border-gray-100">
             <h2 className="font-semibold  text-lg m-0 text-heading flex items-center">
               <span className="text-xl mr-2 ">
@@ -44,7 +48,7 @@ function DrawerCart({ open, placement, setOpen }) {
               Shopping Cart
             </h2>
             <button
-              onClick={() => setOpen(false)}
+              onClick={() => dispatch(shoppingCardAction(false))}
               className="inline-flex text-base items-center justify-center text-gray-500 p-2 focus:outline-none transition-opacity group"
             >
               <svg
@@ -75,176 +79,12 @@ function DrawerCart({ open, placement, setOpen }) {
                 />
               </div>
               <div className="flex flex-col w-full overflow-hidden">
-                <a
-                  className="truncate text-sm font-medium text-gray-700 text-heading line-clamp-1"
-                  href="/product/strawberrie"
+                <Link
+                  className="truncate text-sm font-medium !no-underline !text-gray-700 text-heading line-clamp-1"
+                  to="/product/strawberrie"
                 >
                   Strawberrie
-                </a>
-                <span className="text-xs text-gray-400 mb-1">
-                  Item Price $13
-                </span>
-                <div className="flex items-center justify-between">
-                  <div className="font-bold text-sm md:text-base text-heading leading-5">
-                    <span>$13.00</span>
-                  </div>
-                  <div className="h-8 w-22 md:w-24 lg:w-24 flex flex-wrap items-center justify-evenly p-1 border border-gray-100 bg-white text-gray-600 rounded-md">
-                    <button>
-                      <span className="text-dark text-base">
-                        <svg
-                          stroke="currentColor"
-                          fill="none"
-                          strokeWidth="2"
-                          viewBox="0 0 24 24"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          height="1em"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <line x1="5" y1="12" x2="19" y2="12"></line>
-                        </svg>
-                      </span>
-                    </button>
-                    <p className="text-sm font-semibold text-dark px-1">1</p>
-                    <button>
-                      <span className="text-dark text-base">
-                        <svg
-                          stroke="currentColor"
-                          fill="none"
-                          strokeWidth="2"
-                          viewBox="0 0 24 24"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          height="1em"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <line x1="12" y1="5" x2="12" y2="19"></line>
-                          <line x1="5" y1="12" x2="19" y2="12"></line>
-                        </svg>
-                      </span>
-                    </button>
-                  </div>
-                  <button className="hover:text-red-600 text-red-400 text-lg cursor-pointer">
-                    <svg
-                      stroke="currentColor"
-                      fill="none"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      height="1em"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <polyline points="3 6 5 6 21 6"></polyline>
-                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                      <line x1="10" y1="11" x2="10" y2="17"></line>
-                      <line x1="14" y1="11" x2="14" y2="17"></line>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="group w-full h-auto flex justify-start  items-center bg-white py-3 px-4 border-b hover:bg-gray-50 transition-all border-gray-100 relative last:border-b-0">
-              <div className="relative flex rounded-full border border-gray-100 shadow-sm overflow-hidden flex-shrink-0 cursor-pointer mr-4">
-                <img
-                  src="https://i.postimg.cc/NFXkHVKZ/Strawberries-9-25oz.jpg"
-                  width="40"
-                  height="40"
-                  alt="Strawberrie"
-                />
-              </div>
-              <div className="flex flex-col w-full overflow-hidden">
-                <a
-                  className="truncate text-sm font-medium text-gray-700 text-heading line-clamp-1"
-                  href="/product/strawberrie"
-                >
-                  Strawberrie
-                </a>
-                <span className="text-xs text-gray-400 mb-1">
-                  Item Price $13
-                </span>
-                <div className="flex items-center justify-between">
-                  <div className="font-bold text-sm md:text-base text-heading leading-5">
-                    <span>$13.00</span>
-                  </div>
-                  <div className="h-8 w-22 md:w-24 lg:w-24 flex flex-wrap items-center justify-evenly p-1 border border-gray-100 bg-white text-gray-600 rounded-md">
-                    <button>
-                      <span className="text-dark text-base">
-                        <svg
-                          stroke="currentColor"
-                          fill="none"
-                          strokeWidth="2"
-                          viewBox="0 0 24 24"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          height="1em"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <line x1="5" y1="12" x2="19" y2="12"></line>
-                        </svg>
-                      </span>
-                    </button>
-                    <p className="text-sm font-semibold text-dark px-1">1</p>
-                    <button>
-                      <span className="text-dark text-base">
-                        <svg
-                          stroke="currentColor"
-                          fill="none"
-                          strokeWidth="2"
-                          viewBox="0 0 24 24"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          height="1em"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <line x1="12" y1="5" x2="12" y2="19"></line>
-                          <line x1="5" y1="12" x2="19" y2="12"></line>
-                        </svg>
-                      </span>
-                    </button>
-                  </div>
-                  <button className="hover:text-red-600 text-red-400 text-lg cursor-pointer">
-                    <svg
-                      stroke="currentColor"
-                      fill="none"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      height="1em"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <polyline points="3 6 5 6 21 6"></polyline>
-                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                      <line x1="10" y1="11" x2="10" y2="17"></line>
-                      <line x1="14" y1="11" x2="14" y2="17"></line>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="group w-full h-auto flex justify-start  items-center bg-white py-3 px-4 border-b hover:bg-gray-50 transition-all border-gray-100 relative last:border-b-0">
-              <div className="relative flex rounded-full border border-gray-100 shadow-sm overflow-hidden flex-shrink-0 cursor-pointer mr-4">
-                <img
-                  src="https://i.postimg.cc/NFXkHVKZ/Strawberries-9-25oz.jpg"
-                  width="40"
-                  height="40"
-                  alt="Strawberrie"
-                />
-              </div>
-              <div className="flex flex-col w-full overflow-hidden">
-                <a
-                  className="truncate text-sm font-medium text-gray-700 text-heading line-clamp-1"
-                  href="/product/strawberrie"
-                >
-                  Strawberrie
-                </a>
+                </Link>
                 <span className="text-xs text-gray-400 mb-1">
                   Item Price $13
                 </span>
@@ -312,7 +152,7 @@ function DrawerCart({ open, placement, setOpen }) {
               </div>
             </div>
 
-            {
+            {/* {
               <div className="flex flex-col h-full justify-center">
                 <div className="flex flex-col items-center">
                   <div className="flex justify-center items-center w-20 h-20 rounded-full bg-emerald-100">
@@ -339,12 +179,15 @@ function DrawerCart({ open, placement, setOpen }) {
                   </p>
                 </div>
               </div>
-            }
+            } */}
           </div>
 
           <div className="mx-5 my-3">
             <span>
-              <Link to="/checkout" className=" w-full py-3 px-3 rounded-lg bg-emerald-500 hover:bg-emerald-600 flex items-center justify-between bg-heading text-sm sm:text-base text-white focus:outline-none transition duration-300">
+              <Link
+                to="/checkout"
+                className=" w-full py-3 px-3 rounded-lg !text-white !no-underline !bg-emerald-500 hover:!bg-emerald-600 flex items-center justify-between bg-heading text-sm sm:text-base text-white focus:outline-none transition duration-300"
+              >
                 <span className="align-middle font-medium ">
                   Proceed To Checkout
                 </span>

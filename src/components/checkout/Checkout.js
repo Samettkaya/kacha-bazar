@@ -21,7 +21,7 @@ function Checkout() {
   return (
     <div className="bg-gray-50">
       <div className="mx-auto max-w-screen-2xl px-3 sm:px-10">
-        <div className="py-10 lg:py-12 px-0 2xl:mx-w-screen-2xl w-full xl:max-w-screen-xl flex flex-col md:flex-row lg:flex-row">
+        <div className="py-10 lg:py-12 px-0 2xl:max-w-screen-2xl w-full xl:max-w-screen-xl flex flex-col md:flex-row lg:flex-row">
           <div className="md:w-full lg:w-3/5 flex h-full flex-col order-2 sm:order-1 lg:order-1">
             <div className="mt-5 md:mt-0 md:col-span-2">
               <Formik
@@ -320,9 +320,9 @@ function Checkout() {
                                         <h6 className=" font-medium text-sm text-gray-600">
                                           UPS
                                         </h6>
-                                        <p class="text-xs text-gray-500 font-medium">
+                                        <p className="text-xs text-gray-500 font-medium">
                                           Delivery: 7 Days{" "}
-                                          <span class="font-medium text-gray-600">
+                                          <span className="font-medium text-gray-600">
                                             Cost : $20.00
                                           </span>
                                         </p>
@@ -349,6 +349,9 @@ function Checkout() {
                         <h2 className="font-semibold  text-base text-gray-700 pb-3">
                           03. Payment Details
                         </h2>
+                        <div className="mb-3">
+                          Stripe is Payment
+                        </div>
                         <div className="grid grid-cols-6 gap-6">
                           <div className="col-span-6 sm:col-span-3">
                             <div className="px-3 py-4 border border-gray-200 bg-white rounded-md">
@@ -426,12 +429,12 @@ function Checkout() {
                         </div>
                       </div>
                       <div className="grid grid-cols-6 gap-4 lg:gap-6 mt-10">
-                        <div class="col-span-6 sm:col-span-3">
+                        <div className="col-span-6 sm:col-span-3">
                           <Link
-                            className="bg-indigo-50 border border-indigo-100 rounded py-3 text-center text-sm font-medium text-gray-700 hover:text-gray-800 hover:border-gray-300 transition-all flex justify-center w-full"
+                            className="bg-indigo-50 border !no-underline border-indigo-100 rounded py-3 text-center text-sm font-medium !text-gray-700  hover:!text-gray-800 hover:border-gray-300 transition-all flex justify-center w-full"
                             to="/"
                           >
-                            <span class="text-xl mr-2">
+                            <span className="text-xl mr-2">
                               <svg
                                 stroke="currentColor"
                                 fill="currentColor"

@@ -133,7 +133,7 @@ function Footer() {
                         return (
                           <li key={index} className="flex items-baseline">
                             <Link
-                              className="text-gray-600 inline-block w-full hover:text-emerald-500"
+                              className="!text-gray-600 inline-block w-full !no-underline hover:!text-emerald-500"
                               to={title.href}
                             >
                               {title.Name}

@@ -11,6 +11,8 @@ import Footer from "./components/footer/Footer";
 import MobileApp from "./components/mobileApp/MobileApp";
 import Product from "./components/product/Product";
 import Checkout from "./components/checkout/Checkout";
+import Order from "./components/order/Order";
+import FooterHeader from "./components/footerHeader/FooterHeader";
 
 function App() {
   return (
@@ -25,8 +27,10 @@ function App() {
         <Route path="contact-us" element={<Contact />} />
         <Route path={"product/:productTitle"} element={<Product />} />
         <Route path="checkout" element={<Checkout/>} />
+        <Route path="order" element={<Order/>} />
         <Route path="*" element={<Home/>} />
       </Routes>
+      <FooterHeader/>
       <div className="w-full">
         <MobileApp />
         <Footer />

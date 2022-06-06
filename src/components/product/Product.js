@@ -18,8 +18,8 @@ function Product() {
         <div className="mx-auto px-3 lg:px-10 max-w-screen-2xl">
           <div className="flex items-center pb-4">
             <ol className="flex items-center w-full overflow-hidden">
-              <li className="text-sm pr-1 transition duration-200 ease-in cursor-pointer hover:text-emerald-500 font-semibold">
-                <Link to="/">Home</Link>
+              <li className="text-sm pr-1 transition duration-200 ease-in cursor-pointer  font-semibold">
+                <Link className="!no-underline !text-black hover:!text-emerald-500" to="/">Home</Link>
               </li>
               <li className="text-sm mt-[1px]">
                 <svg
@@ -38,6 +38,7 @@ function Product() {
               </li>
               <li className="text-sm pr-1 transition duration-200 ease-in cursor-pointer hover:text-emerald-500 font-semibold">
                 <Link
+                className="!no-underline !text-black hover:!text-emerald-500"
                   to={`/search?category=${product.category
                     .toLowerCase()
                     .split(" ")
