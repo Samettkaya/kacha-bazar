@@ -33,12 +33,18 @@ function SliceCategory() {
             loop: true,
           },
           768: {
-            slidesPerView: 4,
+            slidesPerView: 5,
             spaceBetween: 8,
             slidesPerGroup: 1,
             loop: true,
           },
           1024: {
+            slidesPerView: 8,
+            spaceBetween: 8,
+            slidesPerGroup: 1,
+            loop: true,
+          },
+          1440: {
             slidesPerView: 10,
             spaceBetween: 8,
             slidesPerGroup: 1,
