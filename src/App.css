@@ -23,6 +23,9 @@
     transition: opacity .3s cubic-bezier(.78,.14,.15,.86),height 0s ease .3s;
 }
 
+
+
+
 .category-slider button.prev {
   background-color: #10b981;
 }
@@ -38,4 +41,12 @@
   justify-content:center;
   align-items: center;
 
+}
+
+
+
+@media (max-width:480px){
+  .rs-drawer-left.rs-drawer-xs, .rs-drawer-right.rs-drawer-xs {
+    width: 100% !important;
+  }
 }

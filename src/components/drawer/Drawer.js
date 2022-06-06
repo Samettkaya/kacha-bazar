@@ -2,17 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Drawer } from "rsuite";
 import "rsuite/dist/rsuite.min.css";
-function DrawerCart({ open, placement, setOpen }) {
+import { useSelector,useDispatch } from 'react-redux'
+import { shoppingCardAction } from "../../store/reducers/shoppingCardSlice";
+function DrawerCart({  }) {
+  const open = useSelector((state) => state.shoppingCard.value)
+  const dispatch = useDispatch()
   return (
     <div>
       <Drawer
         size={"xs"}
-        placement={placement}
+        placement="right"
         open={open}
-        onClose={() => setOpen(false)}
+        onClose={() => dispatch(shoppingCardAction(false))}
       >
-        <div class="drawer-mask"></div>
-        <div class="flex flex-col w-full h-full justify-between items-middle bg-white rounded cursor-pointer">
+        <div className="drawer-mask"></div>
+        <div className="flex flex-col w-full h-full justify-between items-middle bg-white rounded cursor-pointer">
           <div className="w-full flex justify-between items-center relative px-5 py-4 border-b bg-indigo-50 border-gray-100">
             <h2 className="font-semibold  text-lg m-0 text-heading flex items-center">
               <span className="text-xl mr-2 ">
@@ -44,7 +48,7 @@ function DrawerCart({ open, placement, setOpen }) {
               Shopping Cart
             </h2>
             <button
-              onClick={() => setOpen(false)}
+              onClick={() => dispatch(shoppingCardAction(false))}
               className="inline-flex text-base items-center justify-center text-gray-500 p-2 focus:outline-none transition-opacity group"
             >
               <svg
@@ -147,9 +151,8 @@ function DrawerCart({ open, placement, setOpen }) {
                 </div>
               </div>
             </div>
-         
 
-            {
+            {/* {
               <div className="flex flex-col h-full justify-center">
                 <div className="flex flex-col items-center">
                   <div className="flex justify-center items-center w-20 h-20 rounded-full bg-emerald-100">
@@ -176,12 +179,15 @@ function DrawerCart({ open, placement, setOpen }) {
                   </p>
                 </div>
               </div>
-            }
+            } */}
           </div>
 
           <div className="mx-5 my-3">
             <span>
-              <Link to="/checkout" className=" w-full py-3 px-3 rounded-lg !text-white !no-underline !bg-emerald-500 hover:!bg-emerald-600 flex items-center justify-between bg-heading text-sm sm:text-base text-white focus:outline-none transition duration-300">
+              <Link
+                to="/checkout"
+                className=" w-full py-3 px-3 rounded-lg !text-white !no-underline !bg-emerald-500 hover:!bg-emerald-600 flex items-center justify-between bg-heading text-sm sm:text-base text-white focus:outline-none transition duration-300"
+              >
                 <span className="align-middle font-medium ">
                   Proceed To Checkout
                 </span>

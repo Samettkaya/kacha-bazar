@@ -5,8 +5,6 @@ import Search from "../search/Search";
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import {
-  BookmarkAltIcon,
-  CalendarIcon,
   DocumentTextIcon,
   GiftIcon,
   InformationCircleIcon,
@@ -14,26 +12,15 @@ import {
   ShieldCheckIcon,
   ShieldExclamationIcon,
   ShoppingBagIcon,
-  SupportIcon,
   UserGroupIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import category1 from "../../assets/icon/category-1.png";
-import category2 from "../../assets/icon/category-2.png";
-import category3 from "../../assets/icon/category-3.png";
-import category4 from "../../assets/icon/category-4.png";
-import category5 from "../../assets/icon/category-5.png";
-import category6 from "../../assets/icon/category-6.png";
-import category7 from "../../assets/icon/category-7.png";
-import category8 from "../../assets/icon/category-8.png";
-import category9 from "../../assets/icon/category-9.png";
-import category10 from "../../assets/icon/category-10.png";
 import SubMenu from "../subMenu";
 import { CategoriesData } from "../../fakeData/CategoriesData";
-
-
+import UserProfile from "../userProfile/UserProfile";
+import Declaration from "../declaration/Declaration.js";
 
 const resources = [
   {
@@ -86,7 +73,10 @@ function Navigation() {
     <div className="sticky bg-emerald-500 top-0 z-20">
       <div className="max-w-screen-2xl mx-auto px-3 sm:px-10">
         <div className="h-16 top-bar lg:h-auto flex items-center justify-between py-4 mx-auto">
-          <Link to="/" className="!no-underline mr-3 hidden xl:mr-12 md:hidden lg:block " >
+          <Link
+            to="/"
+            className="!no-underline mr-3 hidden xl:mr-12 md:hidden lg:block "
+          >
             <span
               style={{
                 boxSizing: "border-box",
@@ -119,59 +109,17 @@ function Navigation() {
                   alignItems: "center",
                 }}
               >
-                <img
-                  className="flex items-center w-[110px] h-10 "
-                  src={logo}
-                  srcSet={`${logo} 1 ,${logo} 2 ,${logo} 3 `}
-                />
+                <img className="flex items-center w-[110px] h-10 " src={logo} />
               </span>
             </span>
           </Link>
           <Search />
-          <div className="hidden md:hidden md:items-center lg:flex xl:block absolute inset-y-0 right-0 pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <button
-              className=" pr-5 text-white text-2xl font-bold"
-              aria-label="Alert"
-            >
-              <svg
-                stroke="currentColor"
-                fill="none"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-6 h-6 drop-shadow-xl"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-              </svg>
-            </button>
-            <Basket />
-            <button
-              className="pl-5 text-white text-2xl font-bold"
-              aria-label="Login"
-            >
-              <span>
-                <svg
-                  stroke="currentColor"
-                  fill="none"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="w-6 h-6 drop-shadow-xl"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-              </span>
-            </button>
+          <div className="hidden md:hidden md:items-center lg:flex xl:flex absolute inset-y-0 right-0 pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <Declaration />
+            <Basket className="relative px-5 text-white text-2xl font-bold" />
+            <div className="pl-5">
+              <UserProfile />
+            </div>
           </div>
         </div>
       </div>
@@ -217,11 +165,9 @@ function Navigation() {
                                 <div className="flex flex-col w-full h-full bg-white cursor-pointer scrollbar-hide">
                                   <div className="w-full max-h-full">
                                     <div className="relative grid gap-2 p-6">
-                                      {CategoriesData.map((category , index) => (
-
+                                      {CategoriesData.map((category, index) => (
                                         <span
                                           key={index}
-                                         
                                           className=" p-2 flex items-center rounded-md hover:bg-gray-50 w-full hover:text-emerald-600"
                                         >
                                           <span
@@ -283,7 +229,6 @@ function Navigation() {
                                               </svg>
                                             </span>
                                           </div>
-                                 
                                         </span>
                                       ))}
                                     </div>
@@ -295,9 +240,20 @@ function Navigation() {
                         </>
                       )}
                     </Popover>
-                    <Link className="text-sm !text-black !no-underline hover:!text-emerald-600"to="/about-us">About Us</Link>
-                    <Link className="text-sm !text-black !no-underline hover:!text-emerald-600"to="/contact-us"> Contact Us</Link>
-                  
+                    <Link
+                      className="text-sm !text-black !no-underline hover:!text-emerald-600"
+                      to="/about-us"
+                    >
+                      About Us
+                    </Link>
+                    <Link
+                      className="text-sm !text-black !no-underline hover:!text-emerald-600"
+                      to="/contact-us"
+                    >
+                      {" "}
+                      Contact Us
+                    </Link>
+
                     <Popover className="relative">
                       {({ open }) => (
                         <>
@@ -328,21 +284,23 @@ function Navigation() {
                             <Popover.Panel className="absolute z-10 -ml-1 mt-1 transform w-screen max-w-xs bg-white">
                               <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-y-scroll flex-grow scrollbar w-full h-full">
                                 <div className="relative grid gap-2  px-6 py-6 ">
-                                  {resources.map((item , index) => (
-                                  <span key={index} className="p-2 flex  items-center rounded-md hover:!bg-gray-50 w-full hover:!text-emerald-600">
-                                       <item.icon
+                                  {resources.map((item, index) => (
+                                    <span
+                                      key={index}
+                                      className="p-2 flex  items-center rounded-md hover:!bg-gray-50 w-full hover:!text-emerald-600"
+                                    >
+                                      <item.icon
                                         className="flex-shrink-0 h-4 w-4 "
                                         aria-hidden="true"
                                       />
-                                     
-                                        <Link to={item.href} className="!text-black inline-flex items-center justify-between ml-2 text-sm font-medium w-full !no-underline hover:!text-emerald-600">
-                                          {item.name}
-                                        </Link>
-                                       
-                                    
-                                  </span>
-                                   
-                                    
+
+                                      <Link
+                                        to={item.href}
+                                        className="!text-black inline-flex items-center justify-between ml-2 text-sm font-medium w-full !no-underline hover:!text-emerald-600"
+                                      >
+                                        {item.name}
+                                      </Link>
+                                    </span>
                                   ))}
                                 </div>
                               </div>
@@ -367,10 +325,16 @@ function Navigation() {
             </Popover>
           </div>
           <div className="flex">
-            <Link to="/privacy-policy" className=" mx-4 py-2 text-sm cursor-pointer !no-underline !text-black hover:text-emerald-600">
+            <Link
+              to="/privacy-policy"
+              className=" mx-4 py-2 text-sm cursor-pointer !no-underline !text-black hover:text-emerald-600"
+            >
               Privacy Policy
             </Link>
-            <Link to="/terms-and-conditions" className=" mx-4 py-2 text-sm cursor-pointer !no-underline !text-black hover:text-emerald-600">
+            <Link
+              to="/terms-and-conditions"
+              className=" mx-4 py-2 text-sm cursor-pointer !no-underline !text-black hover:text-emerald-600"
+            >
               Terms & Conditions
             </Link>
           </div>

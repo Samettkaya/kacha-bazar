@@ -1104,6 +1104,7 @@ export const PopularProductData = [
     images: [{id:1,small:images['product-12.png']},{id:2,medium:images['Organic-Purple-Cauliflower-1lb-2x.png']}],
     category: "Fresh Vegetable",
     href: "organic-purple-cauliflower",
+    
     tag: [
       { id: 1, name: "cauliflower" },
       { id: 2, name: "fresh vegetable" },
