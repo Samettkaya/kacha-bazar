@@ -48,7 +48,6 @@ function OrderSummary() {
                         />
                       </svg>
                     </span>
-                  
                   </button>
                   <p className="text-sm font-semibold text-dark px-1">1</p>
                   <button>
@@ -89,7 +88,24 @@ function OrderSummary() {
               </div>
             </div>
           </div>
-         
+          <div className="text-center py-10">
+            <span className="flex justify-center my-auto text-gray-500 font-semibold text-4xl">
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                strokeWidth="0"
+                viewBox="0 0 512 512"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M454.65 169.4A31.82 31.82 0 00432 160h-64v-16a112 112 0 00-224 0v16H80a32 32 0 00-32 32v216c0 39 33 72 72 72h272a72.22 72.22 0 0050.48-20.55 69.48 69.48 0 0021.52-50.2V192a31.75 31.75 0 00-9.35-22.6zM176 144a80 80 0 01160 0v16H176zm192 96a112 112 0 01-224 0v-16a16 16 0 0132 0v16a80 80 0 00160 0v-16a16 16 0 0132 0z"></path>
+              </svg>
+            </span>
+            <h2 className="font-medium text-sm pt-2 text-gray-600">
+              No Item Added Yet!
+            </h2>
+          </div>
         </div>
         <div className="flex items-center mt-4 py-4 lg:py-4 text-sm w-full font-semibold text-heading last:border-b-0 last:text-base last:pb-0 ">
           <form className="w-full">
@@ -125,10 +141,8 @@ function OrderSummary() {
         </div>
         <div className="border-t mt-4 text-black">
           <div className="flex items-center font-bold justify-between pt-5 text-sm uppercase">
-          Total Cost
-          <span className="font-extrabold text-lg">
-            $ 15.00
-          </span>
+            Total Cost
+            <span className="font-extrabold text-lg">$ 15.00</span>
           </div>
         </div>
       </div>
