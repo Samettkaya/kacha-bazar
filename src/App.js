@@ -13,6 +13,7 @@ import Product from "./components/product/Product";
 import Checkout from "./components/checkout/Checkout";
 import Order from "./components/order/Order";
 import FooterHeader from "./components/footerHeader/FooterHeader";
+import SideBar from "./components/sideBar/SideBar";
 
 function App() {
   return (
@@ -22,15 +23,19 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
 
-
         <Route path="about-us" element={<About />} />
         <Route path="contact-us" element={<Contact />} />
         <Route path={"product/:productTitle"} element={<Product />} />
-        <Route path="checkout" element={<Checkout/>} />
-        <Route path="order" element={<Order/>} />
-        <Route path="*" element={<Home/>} />
+        <Route path="checkout" element={<Checkout />} />
+        <Route path="order" element={<Order />} />
+        <Route path="*" element={<Home />} />
       </Routes>
-      <FooterHeader/>
+      <div>
+        <FooterHeader />
+      </div>
+      <div>
+        <SideBar />
+      </div>
       <div className="w-full">
         <MobileApp />
         <Footer />

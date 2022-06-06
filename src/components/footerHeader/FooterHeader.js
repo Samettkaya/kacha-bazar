@@ -2,10 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Basket from "../basket/Basket";
 import UserProfile from "../userProfile/UserProfile";
+import {  useDispatch } from 'react-redux'
+import { sidebarAction } from "../../store/reducers/sidebarSlice";
 const FooterHeader = () => {
+
+  const dispatch = useDispatch()
+
+
+     
+
+
   return (
     <footer className="lg:hidden fixed z-30 bottom-0 bg-emerald-500 flex items-center justify-between w-full h-16 px-3 sm:px-10">
-      <button className="flex items-center justify-center flex-shrink-0 h-auto relative focus:outline-none">
+      <button onClick={()=>{ dispatch(sidebarAction(true))}} className="flex items-center justify-center flex-shrink-0 h-auto relative focus:outline-none">
         <span className="text-xl text-white">
           <svg
             stroke="currentColor"

@@ -4,16 +4,7 @@ import Basket from "../basket/Basket";
 import Search from "../search/Search";
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
-import {
-  DocumentTextIcon,
-  GiftIcon,
-  InformationCircleIcon,
-  PhoneIncomingIcon,
-  ShieldCheckIcon,
-  ShieldExclamationIcon,
-  ShoppingBagIcon,
-  UserGroupIcon,
-} from "@heroicons/react/outline";
+
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 
@@ -21,49 +12,9 @@ import SubMenu from "../subMenu";
 import { CategoriesData } from "../../fakeData/CategoriesData";
 import UserProfile from "../userProfile/UserProfile";
 import Declaration from "../declaration/Declaration.js";
+import { ResourcesData } from "../../fakeData/ResourcesData";
 
-const resources = [
-  {
-    name: "Offer",
-    href: "#",
-    icon: GiftIcon,
-  },
-  {
-    name: "Checkout",
-    href: "#",
-    icon: ShoppingBagIcon,
-  },
-  {
-    name: "FAQ",
-    href: "#",
-    icon: ShieldExclamationIcon,
-  },
-  {
-    name: "About Us",
-    href: "#",
-    icon: UserGroupIcon,
-  },
-  {
-    name: "Contact Us",
-    href: "#",
-    icon: PhoneIncomingIcon,
-  },
-  {
-    name: "Privacy Policy",
-    href: "#",
-    icon: ShieldCheckIcon,
-  },
-  {
-    name: "Terms & Conditions",
-    href: "#",
-    icon: DocumentTextIcon,
-  },
-  {
-    name: "404",
-    href: "#",
-    icon: InformationCircleIcon,
-  },
-];
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -284,7 +235,7 @@ function Navigation() {
                             <Popover.Panel className="absolute z-10 -ml-1 mt-1 transform w-screen max-w-xs bg-white">
                               <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-y-scroll flex-grow scrollbar w-full h-full">
                                 <div className="relative grid gap-2  px-6 py-6 ">
-                                  {resources.map((item, index) => (
+                                  {ResourcesData.map((item, index) => (
                                     <span
                                       key={index}
                                       className="p-2 flex  items-center rounded-md hover:!bg-gray-50 w-full hover:!text-emerald-600"
