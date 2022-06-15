@@ -41,7 +41,7 @@ function Categories() {
                         }}
                       >
                         <img
-                          className="flex items-center "
+                          className="flex items-center h-auto w-full "
                           src={category.icon}
                         />
                       </span>

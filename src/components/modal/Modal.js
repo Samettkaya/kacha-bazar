@@ -1,7 +1,11 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "../../store/reducers/cartSlice";
 export default function Modal({ isOpen, closeModal, data }) {
+  const dispatch = useDispatch();
+
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -51,7 +55,7 @@ export default function Modal({ isOpen, closeModal, data }) {
                         {" "}
                         <Link to={"/product/" + data.href}>
                           <img
-                            className="w-[420px] h-[420px]"
+                            className=" w-full h-auto md:w-[420px] md:h-[420px] "
                             src={data.images[1].medium}
                             alt={data.title}
                           />
@@ -78,7 +82,7 @@ export default function Modal({ isOpen, closeModal, data }) {
                       </p>
                       <div className="flex items-center mt-4">
                         <div className=" product-price font-bold">
-                          <span className="inline-block text-2xl">
+                          <span className="inline-block text-black text-2xl">
                             ${data.price}
                           </span>
                           {data.oldPrice === 0 ? (
@@ -97,7 +101,7 @@ export default function Modal({ isOpen, closeModal, data }) {
                               disabled=""
                               className="flex items-center justify-center flex-shrink-0 h-full transition ease-in-out duration-300 focus:outline-none w-8 md:w-12 text-heading border-e border-gray-300 hover:text-gray-500"
                             >
-                              <span className="text-dark text-base">
+                              <span className="text-black text-base ">
                                 <svg
                                   stroke="currentColor"
                                   fill="none"
@@ -113,14 +117,14 @@ export default function Modal({ isOpen, closeModal, data }) {
                                 </svg>
                               </span>
                             </button>
-                            <p className="font-semibold flex items-center justify-center h-full transition-colors duration-250 ease-in-out cursor-default flex-shrink-0 text-base text-heading w-8 md:w-20 xl:w-24">
+                            <p className="text-black font-semibold flex items-center justify-center h-full transition-colors duration-250 ease-in-out cursor-default flex-shrink-0 text-base text-heading w-8 md:w-20 xl:w-24">
                               1
                             </p>
                             <button
-                              className="flex items-center justify-center h-full flex-shrink-0 transition ease-in-out duration-300 focus:outline-none w-8 md:w-12 text-heading border-s border-gray-300 hover:text-gray-500"
+                              className=" flex items-center justify-center h-full flex-shrink-0 transition ease-in-out duration-300 focus:outline-none w-8 md:w-12 text-heading border-s border-gray-300 hover:text-gray-500"
                               tabIndex="0"
                             >
-                              <span className="text-dark text-base">
+                              <span className="text-black text-base">
                                 <svg
                                   stroke="currentColor"
                                   fill="none"
@@ -138,7 +142,7 @@ export default function Modal({ isOpen, closeModal, data }) {
                               </span>
                             </button>
                           </div>
-                          <button className="text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold  text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-4 ml-4 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-emerald-500 hover:bg-emerald-600 w-full h-12">
+                          <button onClick={()=>dispatch(addToCart(data))} className="text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold  text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-4 ml-4 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-emerald-500 hover:bg-emerald-600 w-full h-12">
                             Add To Cart
                           </button>
                         </div>
