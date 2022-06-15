@@ -106,7 +106,7 @@ function About() {
               </span>
             </div>
           </div>
-          <div class="mt-10 lg:mt-16 text-base opacity-90 leading-7">
+          <div className="mt-10 lg:mt-16 text-base opacity-90 leading-7">
             <p className="mb-4">
               Holisticly seize parallel metrics and functional ROI. Seamlessly
               revolutionize error-free internal or "organic" sources before

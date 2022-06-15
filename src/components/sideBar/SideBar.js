@@ -67,12 +67,13 @@ const SideBar = () => {
           </h2>
           <div className="relative grid gap-2 p-6">
             {CategoriesData.map((category, index) => (
-              <Disclosure>
+             <div key={index}>
+                <Disclosure>
                 {({ open }) => (
                   <>
                     <Disclosure.Button
                       className="p-2 flex items-center rounded-md hover:bg-gray-50 w-full hover:text-emerald-600"
-                      key={index}
+                  
                     >
                       <span
                         style={{
@@ -103,82 +104,43 @@ const SideBar = () => {
                     </Disclosure.Button>
                     <Disclosure.Panel>
                       <ul className="pl-6 pb-3 pt-1 -mt-1">
-                       {category.subCategories.map((subCategory,index)=>(
+                        {category.subCategories.map((subCategory, index) => (
                           <li key={index}>
-                          <Link to={subCategory.path} className="flex items-center  py-1 text-sm !text-gray-600 !no-underline hover:!text-emerald-600 hover:!no-underline cursor-pointer">
-                            <span className="text-xs text-gray-500 pr-1">
-                              <svg
-                                stroke="currentColor"
-                                fill="currentColor"
-                                strokeWidth="0"
-                                viewBox="0 0 512 512"
-                                height="1em"
-                                width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  fill="none"
-                                  strokeLinecap="square"
-                                  strokeLinejoin="round"
-                                  strokeWidth="32"
-                                  d="M400 256H112"
-                                ></path>
-                              </svg>
-                            </span>
-                            {subCategory.name}
-                          </Link>
-                        </li>
-                       ))}
+                            <Link
+                          onClick={() => dispatch(sidebarAction(false))}
+                              to={subCategory.path}
+                              className="flex items-center  py-1 text-sm !text-gray-600 !no-underline hover:!text-emerald-600 hover:!no-underline cursor-pointer"
+                            >
+                              <span className="text-xs text-gray-500 pr-1">
+                                <svg
+                                  stroke="currentColor"
+                                  fill="currentColor"
+                                  strokeWidth="0"
+                                  viewBox="0 0 512 512"
+                                  height="1em"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    fill="none"
+                                    strokeLinecap="square"
+                                    strokeLinejoin="round"
+                                    strokeWidth="32"
+                                    d="M400 256H112"
+                                  ></path>
+                                </svg>
+                              </span>
+                              {subCategory.name}
+                            </Link>
+                          </li>
+                        ))}
                       </ul>
                     </Disclosure.Panel>
                   </>
                 )}
               </Disclosure>
-              // <button
-              //   className="p-2 flex items-center rounded-md hover:bg-gray-50 w-full hover:text-emerald-600"
-              //   key={index}
-              // >
-              //   <span
-              //     style={{
-              //       boxSizing: " border-box",
-              //       display: "inline-block",
-              //       overflow: "hidden",
-              //       width: "initial",
-              //       height: "initial",
-              //       background: "none",
-              //       opacity: "1",
-              //       border: "0px",
-              //       margin: "0px",
-              //       padding: "0px",
-              //       position: "relative",
-              //       maxWidth: "100%",
-              //     }}
-              //   >
-              //     <img className="h-4 w-4" src={category.icon} />
-              //   </span>
-              //   <div className="inline-flex items-center justify-between ml-3 text-sm font-medium w-full hover:text-emerald-600">
-              //    {category.name}
-              //     <span className="transition duration-700 ease-in-out inline-flex loading-none items-end text-gray-400">
-              //       <svg
-              //         stroke="currentColor"
-              //         fill="currentColor"
-              //         strokeWidth="0"
-              //         viewBox="0 0 512 512"
-              //         height="1em"
-              //         width="1em"
-              //         xmlns="http://www.w3.org/2000/svg"
-              //       >
-              //         <path
-              //           fill="none"
-              //           strokeLinecap="round"
-              //           strokeLinejoin="round"
-              //           strokeWidth="48"
-              //           d="M112 184l144 144 144-144"
-              //         ></path>
-              //       </svg>
-              //     </span>
-              //   </div>
-              // </button>
+             </div>
+             
             ))}
           </div>
 
@@ -189,8 +151,9 @@ const SideBar = () => {
             <div className="relative grid gap-1 p-6">
               {ResourcesData.map((item, index) => (
                 <Link
-                  key="index"
+                  key={index}
                   to={item.href}
+                  onClick={() => dispatch(sidebarAction(false))}
                   className="p-2 flex !text-black items-center rounded-md !no-underline hover:!bg-gray-50 w-full hover:!no-underline hover:!text-emerald-600 "
                 >
                   <item.icon

@@ -14,6 +14,7 @@ import Checkout from "./components/checkout/Checkout";
 import Order from "./components/order/Order";
 import FooterHeader from "./components/footerHeader/FooterHeader";
 import SideBar from "./components/sideBar/SideBar";
+import DrawerCart from "./components/drawer/Drawer";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
       </div>
       <div>
         <SideBar />
+        <DrawerCart />
       </div>
       <div className="w-full">
         <MobileApp />
