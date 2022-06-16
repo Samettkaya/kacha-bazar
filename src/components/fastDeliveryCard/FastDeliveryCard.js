@@ -23,7 +23,7 @@ function FastDeliveryCard() {
                   and get a special discount.
                 </p>
                 <Link
-                  className="lg:w-1/4 text-xs font-medium inline-block mt-5 px-8 py-3 bg-emerald-500 text-center text-white rounded-full hover:text-white hover:bg-emerald-600"
+                  className="lg:w-1/4 hover:no-underline text-md font-medium inline-block mt-5 px-8 py-3 bg-emerald-500 text-center text-white rounded-full hover:text-white hover:bg-emerald-600"
                   to="/#downloadApp"
                 >
                   Download App

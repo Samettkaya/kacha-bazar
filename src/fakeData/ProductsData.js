@@ -1162,6 +1162,6 @@ export function getProductById(title){
   return Products.find((product)=>product.title.toLowerCase() === title.split("-").join(" "))
 }
 
-export function getProductByCategory(title){
-  return Products.filter((product)=>product.category === title)
+export function getProductByCategory(category){
+  return Products.filter((product)=>product.category.toLowerCase() === category)
 }

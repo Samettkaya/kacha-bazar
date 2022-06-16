@@ -4,7 +4,9 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import { CategoriesData } from "../../fakeData/CategoriesData";
+import { useNavigate } from "react-router-dom";
 function SliceCategory() {
+  let navigate = useNavigate();
   return (
     <div className="relative">
       <Swiper
@@ -54,10 +56,10 @@ function SliceCategory() {
         modules={[Navigation]}
         className="mySwiper category-slider my-10"
       >
-        {CategoriesData.map((category) => {
+        {CategoriesData.map((category, index) => {
           return (
-            <SwiperSlide className="group">
-              <div className="text-center cursor-pointer p-3 bg-white rounded-lg">
+            <SwiperSlide key={index} className="group">
+              <div onClick={()=>navigate("/search?Category="+category.path)} className="text-center cursor-pointer p-3 bg-white rounded-lg">
                 <div className="bg-white p-2 mx-auto w-10 h-10 rounded-full shadow-md">
                   <span
                     style={{
@@ -78,7 +80,7 @@ function SliceCategory() {
                     <img src={category.icon} />
                   </span>
                 </div>
-                <h3 class="text-xs text-gray-600 mt-2  group-hover:text-emerald-500">
+                <h3  className="text-xs text-gray-600 mt-2  group-hover:text-emerald-500">
                   {category.name}
                 </h3>
               </div>

@@ -40,10 +40,14 @@
   display: flex;
   justify-content:center;
   align-items: center;
-
 }
 
-
+.swiper-button-next{
+  right: 0px !important;
+}
+.swiper-button-prev{
+  left: 0px !important;
+}
 
 @media (max-width:480px){
   .rs-drawer-left.rs-drawer-xs, .rs-drawer-right.rs-drawer-xs {

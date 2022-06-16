@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../assets/icon/logo-light.svg";
 import Basket from "../basket/Basket";
-import Search from "../search/Search";
+import SearchBar from "../searchBar/SearchBar";
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 
@@ -64,7 +64,7 @@ function Navigation() {
               </span>
             </span>
           </Link>
-          <Search />
+          <SearchBar />
           <div className="hidden md:hidden md:items-center lg:flex xl:flex absolute inset-y-0 right-0 pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <Declaration />
             <Basket className="relative px-5 text-white text-2xl font-bold" />

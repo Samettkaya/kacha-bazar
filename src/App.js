@@ -15,6 +15,7 @@ import Order from "./components/order/Order";
 import FooterHeader from "./components/footerHeader/FooterHeader";
 import SideBar from "./components/sideBar/SideBar";
 import DrawerCart from "./components/drawer/Drawer";
+import Search from "./components/search/Search";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="contact-us" element={<Contact />} />
         <Route path={"product/:productTitle"} element={<Product />} />
         <Route path="checkout" element={<Checkout />} />
+        <Route path="search" element={<Search />} />
         <Route path="order" element={<Order />} />
         <Route path="*" element={<Home />} />
       </Routes>

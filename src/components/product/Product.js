@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getProductByCategory, getProductById } from "../../fakeData/ProductsData";
+
 import Card from "../card/Card";
 import Informations from "../informations/Informations";
 import SocialNetwork from "../socialNetwork/SocialNetwork";
