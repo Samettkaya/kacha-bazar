@@ -92,7 +92,7 @@ function Slider() {
                 </p>
                 <Link
                   className="hidden sm:inline-block lg:inline-block text-sm leading-6 !no-underline  font-normal mt-6 px-6 py-2 !bg-emerald-500 text-center rounded-md !text-white hover:!bg-emerald-600"
-                  to="/search?Category=biscuits--cakes"
+                  to={"/search?Category="+data.path}
                 >
                   Shop Now
                 </Link>

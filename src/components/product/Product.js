@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getProductByCategory, getProductById } from "../../fakeData/ProductsData";
+import {
+  getProductByCategory,
+  getProductById,
+} from "../../fakeData/ProductsData";
 
 import Card from "../card/Card";
 import Informations from "../informations/Informations";
@@ -11,8 +14,8 @@ function Product() {
   const product = getProductById(productTitle);
   const RelatedProduct = getProductByCategory(product.category);
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="bg-gray-50">
       <div className="px-0 py-10 lg:py-10">
@@ -20,7 +23,12 @@ function Product() {
           <div className="flex items-center pb-4">
             <ol className="flex items-center w-full overflow-hidden">
               <li className="text-sm pr-1 transition duration-200 ease-in cursor-pointer  font-semibold">
-                <Link className="!no-underline !text-black hover:!text-emerald-500" to="/">Home</Link>
+                <Link
+                  className="!no-underline !text-black hover:!text-emerald-500"
+                  to="/"
+                >
+                  Home
+                </Link>
               </li>
               <li className="text-sm mt-[1px]">
                 <svg
@@ -39,7 +47,7 @@ function Product() {
               </li>
               <li className="text-sm pr-1 transition duration-200 ease-in cursor-pointer hover:text-emerald-500 font-semibold">
                 <Link
-                className="!no-underline !text-black hover:!text-emerald-500"
+                  className="!no-underline !text-black hover:!text-emerald-500"
                   to={`/search?category=${product.category
                     .toLowerCase()
                     .split(" ")
@@ -198,7 +206,10 @@ function Product() {
                         <div className="flex flex-row">
                           {product.tag.map((e) => {
                             return (
-                              <span key={e.id} className="bg-gray-50 mr-2 border-0 text-gray-600 rounded-full inline-flex items-center justify-center px-3 py-1 text-xs font-semibold  mt-2">
+                              <span
+                                key={e.id}
+                                className="bg-gray-50 mr-2 border-0 text-gray-600 rounded-full inline-flex items-center justify-center px-3 py-1 text-xs font-semibold  mt-2"
+                              >
                                 {e.name}
                               </span>
                             );
@@ -214,17 +225,18 @@ function Product() {
             </div>
           </div>
           <div className="pt-10 llg:pt-20 lg:pb-10">
-          <h3 className="leading-7 text-lg lg:text-xl mb-3 font-semibold  hover:text-gray-600">Related Products</h3>
-          <div className="flex">
-        <div className="w-full">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-2 md:gap-3 lg:gap-3 ">
-            {RelatedProduct.map((data, index) => (
-              <Card key={index} data={data} />
-             
-            ))}
-          </div>
-        </div>
-      </div>
+            <h3 className="leading-7 text-lg lg:text-xl mb-3 font-semibold  hover:text-gray-600">
+              Related Products
+            </h3>
+            <div className="flex">
+              <div className="w-full">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-2 md:gap-3 lg:gap-3 ">
+                  {RelatedProduct.map((data, index) => (
+                    <Card key={index} data={data} />
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

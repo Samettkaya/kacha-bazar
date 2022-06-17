@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from "formik";
-import React from "react";
+import React, { useEffect } from "react";
 import OrderSummary from "../orderSummary/OrderSummary";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
@@ -18,6 +18,9 @@ const SignupSchema = Yup.object().shape({
   paymentMethod: Yup.string().required("Payment Method is required"),
 });
 function Checkout() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="bg-gray-50">
       <div className="mx-auto max-w-screen-2xl px-3 sm:px-10">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Categories from "../components/categories/Categories";
 import FastDeliveryCard from "../components/fastDeliveryCard/FastDeliveryCard";
 import LatestDiscountCouponCode from "../components/latestDiscountCouponCode/LatestDiscountCouponCode";
@@ -9,6 +9,10 @@ import LatestDiscountedProduct from "../components/latestDiscountedProduct/Lates
 import Cart from "../components/cart/Cart";
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="bg-gray-50">
       <div className="min-h-screen">

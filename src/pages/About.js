@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import pageHeader from "../assets/img/page-header-bg.jpg";
 import aboutUs from "../assets/img/about-us.png";
 import aboutVegetables from "../assets/img/about-vegetables.png";
@@ -10,6 +10,10 @@ import women2 from "../assets/img/women-2.png";
 import women3 from "../assets/img/women-3.png";
 
 function About() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="bg-gray-50">
       <div className="flex justify-center py-10 lg:py-20 bg-page-header-bg bg-indigo-100 w-full bg-cover bg-no-repeat bg-bottom bg-page-header ">
