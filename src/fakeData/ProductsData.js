@@ -1165,3 +1165,8 @@ export function getProductById(title){
 export function getProductByCategory(category){
   return Products.filter((product)=>product.category.toLowerCase() === category)
 }
+
+export function getProductByName(value){
+  
+  return Products.filter((product)=>product.title.toLowerCase().includes(value.toLowerCase()))
+}

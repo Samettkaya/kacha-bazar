@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Drawer } from "rsuite";
 import "rsuite/dist/rsuite.min.css";
 import { useSelector, useDispatch } from "react-redux";
 import { sidebarAction } from "../../store/reducers/sidebarSlice";
+import { searchAction } from "../../store/reducers/searchSlice";
 import logo from "../../assets/icon/logo-light.svg";
 import { ResourcesData } from "../../fakeData/ResourcesData";
 import { CategoriesData } from "../../fakeData/CategoriesData";
@@ -11,6 +12,18 @@ import { ChevronRightIcon } from "@heroicons/react/solid";
 const SideBar = () => {
   const open = useSelector((state) => state.sidebar.value);
   const dispatch = useDispatch();
+  let navigate = useNavigate();
+
+  const handleClick = (value) => {
+    navigate("/search?Category=" + value)
+    const category =
+      value.includes("--") === true 
+        ? value.split("--").join(" ")
+        : value.split("-").join(" ");
+      
+   dispatch(searchAction({ value: category, path: "Category" }));
+   dispatch(sidebarAction(false))
+  };
   return (
     <Drawer
       size={"xs"}
@@ -107,8 +120,8 @@ const SideBar = () => {
                         {category.subCategories.map((subCategory, index) => (
                           <li key={index}>
                             <Link
-                          onClick={() => dispatch(sidebarAction(false))}
-                              to={subCategory.path}
+                          onClick={() =>handleClick(subCategory.path)}
+                              to={"/search?Category="+subCategory.path}
                               className="flex items-center  py-1 text-sm !text-gray-600 !no-underline hover:!text-emerald-600 hover:!no-underline cursor-pointer"
                             >
                               <span className="text-xs text-gray-500 pr-1">

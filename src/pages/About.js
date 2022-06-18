@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import pageHeader from "../assets/img/page-header-bg.jpg";
 import aboutUs from "../assets/img/about-us.png";
 import aboutVegetables from "../assets/img/about-vegetables.png";
 import men1 from "../assets/img/men-1.png";
@@ -19,9 +18,10 @@ function About() {
       <div className="flex justify-center py-10 lg:py-20 bg-page-header-bg bg-indigo-100 w-full bg-cover bg-no-repeat bg-bottom bg-page-header ">
         <div className="flex mx-auto w-full max-w-screen-2xl px-3 sm:px-10">
           <div className="w-full flex justify-center flex-col relative">
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-center">About US</h2>
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-center">
+              About US
+            </h2>
           </div>
-
         </div>
       </div>
       <div className="bg-white">
@@ -57,9 +57,7 @@ function About() {
                   <span className="text-3xl block font-extrabold  mb-4 text-gray-800">
                     10K
                   </span>
-                  <h4 className="text-lg font-bold mb-1">
-                    Listed Products
-                  </h4>
+                  <h4 className="text-lg font-bold mb-1">Listed Products</h4>
                   <p className="mb-0 opacity-90 leading-7">
                     Dynamically morph team driven partnerships after vertical.
                   </p>
@@ -68,9 +66,7 @@ function About() {
                   <span className="text-3xl block font-extrabold  mb-4 text-gray-800">
                     8K
                   </span>
-                  <h4 className="text-lg  font-bold mb-1">
-                    Lovely Customer
-                  </h4>
+                  <h4 className="text-lg  font-bold mb-1">Lovely Customer</h4>
                   <p className="mb-0 opacity-90 leading-7">
                     Competently productize virtual models without performance.
                   </p>
@@ -252,9 +248,7 @@ function About() {
                   </span>
                 </span>
                 <div className="py-4">
-                  <h5 className="text-lg font-semibold ">
-                    Niamh Shea
-                  </h5>
+                  <h5 className="text-lg font-semibold ">Niamh Shea</h5>
                   <span className="opacity-75 text-sm">
                     Co-founder &amp; Executive
                   </span>
@@ -309,9 +303,7 @@ function About() {
                   </span>
                 </span>
                 <div className="py-4">
-                  <h5 className="text-lg font-semibold ">
-                    Orla Dwyer
-                  </h5>
+                  <h5 className="text-lg font-semibold ">Orla Dwyer</h5>
                   <span className="opacity-75 text-sm">Chief Executive</span>
                 </div>
               </div>
@@ -364,9 +356,7 @@ function About() {
                   </span>
                 </span>
                 <div className="py-4">
-                  <h5 className="text-lg font-semibold ">
-                    Danien James
-                  </h5>
+                  <h5 className="text-lg font-semibold ">Danien James</h5>
                   <span className="opacity-75 text-sm">
                     Co-founder, Chairman
                   </span>
@@ -421,9 +411,7 @@ function About() {
                   </span>
                 </span>
                 <div className="py-4">
-                  <h5 className="text-lg font-semibold ">
-                    Dara Frazier
-                  </h5>
+                  <h5 className="text-lg font-semibold ">Dara Frazier</h5>
                   <span className="opacity-75 text-sm">
                     Chief Strategy Officer
                   </span>
@@ -478,9 +466,7 @@ function About() {
                   </span>
                 </span>
                 <div className="py-4">
-                  <h5 className="text-lg font-semibold ">
-                    Glenda Arvidson
-                  </h5>
+                  <h5 className="text-lg font-semibold ">Glenda Arvidson</h5>
                   <span className="opacity-75 text-sm">HR Officer</span>
                 </div>
               </div>
@@ -533,9 +519,7 @@ function About() {
                   </span>
                 </span>
                 <div className="py-4">
-                  <h5 className="text-lg font-semibold ">
-                    Melvin Davis
-                  </h5>
+                  <h5 className="text-lg font-semibold ">Melvin Davis</h5>
                   <span className="opacity-75 text-sm">Lead Developer</span>
                 </div>
               </div>

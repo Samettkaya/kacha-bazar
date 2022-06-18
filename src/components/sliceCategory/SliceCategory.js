@@ -5,8 +5,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import { CategoriesData } from "../../fakeData/CategoriesData";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { searchAction } from "../../store/reducers/searchSlice";
 function SliceCategory() {
   let navigate = useNavigate();
+  const dispatch = useDispatch();
+  const handleClick = (value) => {
+    navigate("/search?Category=" + value)
+    const category =
+      value.includes("--") === true 
+        ? value.split("--").join(" ")
+        : value.split("-").join(" ");
+      
+   dispatch(searchAction({ value: category, path: "Category" }));
+  };
   return (
     <div className="relative">
       <Swiper
@@ -59,7 +71,7 @@ function SliceCategory() {
         {CategoriesData.map((category, index) => {
           return (
             <SwiperSlide key={index} className="group">
-              <div onClick={()=>navigate("/search?Category="+category.path)} className="text-center cursor-pointer p-3 bg-white rounded-lg">
+              <div onClick={()=>handleClick(category.path)} className="text-center cursor-pointer p-3 bg-white rounded-lg">
                 <div className="bg-white p-2 mx-auto w-10 h-10 rounded-full shadow-md">
                   <span
                     style={{

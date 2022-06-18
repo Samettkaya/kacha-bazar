@@ -1,8 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { CategoriesData } from "../../fakeData/CategoriesData";
+import { searchAction } from "../../store/reducers/searchSlice";
 
 function Categories() {
+  let navigate = useNavigate();
+  const dispatch = useDispatch();
+  const handleClick = (value) => {
+    navigate("/search?Category=" + value)
+    const category =
+      value.includes("--") === true 
+        ? value.split("--").join(" ")
+        : value.split("-").join(" ");
+      
+   dispatch(searchAction({ value: category, path: "Category" }));
+  };
+
+
   return (
     <div className="bg-gray-100 lg:py-16 py-10">
       <div className="mx-auto max-w-screen-2xl px-3 sm:px-10">
@@ -55,6 +70,7 @@ function Categories() {
                           return (
                             <li className="pt-1" key={index}>
                               <Link
+                              onClick={() =>handleClick(subCategory.path)}
                                 className=" flex items-center font-serif text-xs !no-underline !text-gray-400 hover:!text-emerald-600 cursor-pointer "
                                 to={"/search?Category="+subCategory.path}
                               >
