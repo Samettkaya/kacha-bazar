@@ -16,11 +16,17 @@ import FooterHeader from "./components/footerHeader/FooterHeader";
 import SideBar from "./components/sideBar/SideBar";
 import DrawerCart from "./components/drawer/Drawer";
 import Search from "./components/search/Search";
+import Login from "./components/login/Login";
+import Register from "./components/register/Register";
+import { useState } from "react";
 
 function App() {
+
+  let [isOpenLogin, setIsOpenLogin] = useState(false);
+  let [isOpenRegister, setIsOpenRegister] = useState(false);
   return (
     <div>
-      <Header />
+      <Header isOpenLogin={isOpenLogin} setIsOpenLogin={setIsOpenLogin}/>
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -39,6 +45,8 @@ function App() {
       <div>
         <SideBar />
         <DrawerCart />
+        <Login isOpen={isOpenLogin} setIsOpenLogin={setIsOpenLogin} setIsOpenRegister={setIsOpenRegister} />
+        <Register isOpen={isOpenRegister} setIsOpenRegister={setIsOpenRegister} setIsOpenLogin={setIsOpenLogin} />
       </div>
       <div className="w-full">
         <MobileApp />
