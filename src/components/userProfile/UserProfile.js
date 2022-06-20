@@ -1,8 +1,12 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+
+import { isLoginAction } from '../../store/reducers/isOpenSlice'
 const UserProfile = () => {
+  const dispatch = useDispatch()
+  
   return (
-    <Link to='/users'
+    <button onClick={()=>dispatch(isLoginAction(true))}
     className="!text-white hover:!text-white text-2xl font-bold"
    
   >
@@ -23,7 +27,7 @@ const UserProfile = () => {
         <circle cx="12" cy="7" r="4"></circle>
       </svg>
     </span>
-  </Link>
+  </button>
   )
 }
 

@@ -4,17 +4,12 @@ import Basket from "../basket/Basket";
 import SearchBar from "../searchBar/SearchBar";
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
-
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
-
-import SubMenu from "../subMenu";
 import { CategoriesData } from "../../fakeData/CategoriesData";
 import UserProfile from "../userProfile/UserProfile";
 import Declaration from "../declaration/Declaration.js";
 import { ResourcesData } from "../../fakeData/ResourcesData";
-
-
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

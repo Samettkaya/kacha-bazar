@@ -22,11 +22,10 @@ import { useState } from "react";
 
 function App() {
 
-  let [isOpenLogin, setIsOpenLogin] = useState(false);
   let [isOpenRegister, setIsOpenRegister] = useState(false);
   return (
     <div>
-      <Header isOpenLogin={isOpenLogin} setIsOpenLogin={setIsOpenLogin}/>
+      <Header/>
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -45,8 +44,8 @@ function App() {
       <div>
         <SideBar />
         <DrawerCart />
-        <Login isOpen={isOpenLogin} setIsOpenLogin={setIsOpenLogin} setIsOpenRegister={setIsOpenRegister} />
-        <Register isOpen={isOpenRegister} setIsOpenRegister={setIsOpenRegister} setIsOpenLogin={setIsOpenLogin} />
+        <Login  setIsOpenRegister={setIsOpenRegister} />
+        <Register isOpen={isOpenRegister} setIsOpenRegister={setIsOpenRegister} />
       </div>
       <div className="w-full">
         <MobileApp />

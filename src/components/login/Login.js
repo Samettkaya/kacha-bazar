@@ -1,20 +1,23 @@
 import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Formik, Field, Form } from "formik";
-import * as Yup from 'yup';
-const Login = ({isOpen, setIsOpenLogin, setIsOpenRegister}) => {
-
-  const LoginSchema = Yup.object().shape({
+import { useDispatch,useSelector } from "react-redux";
+import * as Yup from "yup";
+import { isLoginAction } from "../../store/reducers/isOpenSlice";
+const Login = ({ setIsOpenRegister }) => {
+  const dispatch = useDispatch();
   
-    password: Yup.string().required('Password is required!'),
-    email: Yup.string().email('Invalid email').required('Email is required!'),
+  const {isOpen }= useSelector(state=>state.isOpen)
+  const LoginSchema = Yup.object().shape({
+    password: Yup.string().required("Password is required!"),
+    email: Yup.string().email("Invalid email").required("Email is required!"),
   });
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
         as="div"
         className=" fixed inset-0 overflow-y-auto text-center z-30"
-        onClose={() => setIsOpenLogin(false)}
+        onClose={() =>  dispatch(isLoginAction(true))}
       >
         <div className="min-h-screen px-4">
           <Transition.Child
@@ -28,7 +31,12 @@ const Login = ({isOpen, setIsOpenLogin, setIsOpenRegister}) => {
           >
             <div className="fixed inset-0 bg-black bg-opacity-60" />
           </Transition.Child>
-          <span className="inline-block h-screen align-middle" aria-hidden="true">​</span>
+          <span
+            className="inline-block h-screen align-middle"
+            aria-hidden="true"
+          >
+            ​
+          </span>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -54,7 +62,7 @@ const Login = ({isOpen, setIsOpenLogin, setIsOpenRegister}) => {
                 </div>
 
                 <Formik
-                 validationSchema={LoginSchema}
+                  validationSchema={LoginSchema}
                   initialValues={{
                     password: "",
                     email: "",
@@ -64,107 +72,115 @@ const Login = ({isOpen, setIsOpenLogin, setIsOpenRegister}) => {
                     alert(JSON.stringify(values, null, 2));
                   }}
                 >
-                     {({ errors, touched, isValidating }) => (
-                  <Form className="flex flex-col justify-center">
-                    <div className="grid grid-cols-1 gap-5">
-                      <div className="grid">
-                        <label
-                          htmlFor="email"
-                          className="block text-gray-500 font-medium text-sm leading-none mb-2 "
-                        >
-                          Email
-                        </label>
-                        <div className="relative">
-                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <span className="text-gray-800 focus-within:text-gray-900 sm:text-base">
-                              <svg
-                                stroke="currentColor"
-                                fill="none"
-                                strokeWidth="2"
-                                viewBox="0 0 24 24"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                height="1em"
-                                width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                              </svg>
-                            </span>
-                          </div>
-                          <Field
-                            className="py-2 pl-10 w-full appearance-none border text-sm opacity-75 text-input rounded-md placeholder-body min-h-12 transition duration-200 focus:ring-0 ease-in-out bg-white border-gray-200 focus:outline-none focus:border-emerald-500 h-11 md:h-12"
-                            id="email"
-                            name="email"
-                            placeholder="Email"
-                            type="email"
-                          />
-                         
-                        </div>
-                        {errors.email&& touched.email&& <span className="text-red-400 text-sm mt-2">{errors.email}</span>} 
-                      </div>
-                      <div className="grid">
-                        <label
-                          className="block text-gray-500 font-medium text-sm leading-none mb-2 "
-                          htmlFor="password"
-                        >
-                          Password
-                        </label>
-                        <div className="relative">
-                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <span className="text-gray-800 focus-within:text-gray-900 sm:text-base">
-                              <svg
-                                stroke="currentColor"
-                                fill="none"
-                                strokeWidth="2"
-                                viewBox="0 0 24 24"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                height="1em"
-                                width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <rect
-                                  x="3"
-                                  y="11"
-                                  width="18"
-                                  height="11"
-                                  rx="2"
-                                  ry="2"
-                                ></rect>
-                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                              </svg>
-                            </span>
-                          </div>
-                          <Field
-                            className="py-2 pl-10 w-full appearance-none border text-sm opacity-75 text-input rounded-md placeholder-body min-h-12 transition duration-200 focus:ring-0 ease-in-out bg-white border-gray-200 focus:outline-none focus:border-emerald-500 h-11 md:h-12"
-                            id="password"
-                            name="password"
-                            placeholder="Password"
-                            type="password"
-                          />
-                        </div>
-                        {errors.password&& touched.password&& <span className="text-red-400 text-sm mt-2">{errors.password}</span>} 
-                      </div>
-                      <div className="flex items-center text-black justify-between">
-                        <div className="flex ms-auto">
-                          <button
-                            type="button"
-                            className="text-end text-sm text-heading ps-3 underline hover:no-underline focus:outline-none"
+                  {({ errors, touched, isValidating }) => (
+                    <Form className="flex flex-col justify-center">
+                      <div className="grid grid-cols-1 gap-5">
+                        <div className="grid">
+                          <label
+                            htmlFor="email"
+                            className="block text-gray-500 font-medium text-sm leading-none mb-2 "
                           >
-                            Forgot password?
-                          </button>
+                            Email
+                          </label>
+                          <div className="relative">
+                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                              <span className="text-gray-800 focus-within:text-gray-900 sm:text-base">
+                                <svg
+                                  stroke="currentColor"
+                                  fill="none"
+                                  strokeWidth="2"
+                                  viewBox="0 0 24 24"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  height="1em"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                  <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                              </span>
+                            </div>
+                            <Field
+                              className="py-2 pl-10 w-full appearance-none border text-sm opacity-75 text-input rounded-md placeholder-body min-h-12 transition duration-200 focus:ring-0 ease-in-out bg-white border-gray-200 focus:outline-none focus:border-emerald-500 h-11 md:h-12"
+                              id="email"
+                              name="email"
+                              placeholder="Email"
+                              type="email"
+                            />
+                          </div>
+                          {errors.email && touched.email && (
+                            <span className="text-red-400 text-sm mt-2">
+                              {errors.email}
+                            </span>
+                          )}
                         </div>
+                        <div className="grid">
+                          <label
+                            className="block text-gray-500 font-medium text-sm leading-none mb-2 "
+                            htmlFor="password"
+                          >
+                            Password
+                          </label>
+                          <div className="relative">
+                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                              <span className="text-gray-800 focus-within:text-gray-900 sm:text-base">
+                                <svg
+                                  stroke="currentColor"
+                                  fill="none"
+                                  strokeWidth="2"
+                                  viewBox="0 0 24 24"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  height="1em"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <rect
+                                    x="3"
+                                    y="11"
+                                    width="18"
+                                    height="11"
+                                    rx="2"
+                                    ry="2"
+                                  ></rect>
+                                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                              </span>
+                            </div>
+                            <Field
+                              className="py-2 pl-10 w-full appearance-none border text-sm opacity-75 text-input rounded-md placeholder-body min-h-12 transition duration-200 focus:ring-0 ease-in-out bg-white border-gray-200 focus:outline-none focus:border-emerald-500 h-11 md:h-12"
+                              id="password"
+                              name="password"
+                              placeholder="Password"
+                              type="password"
+                            />
+                          </div>
+                          {errors.password && touched.password && (
+                            <span className="text-red-400 text-sm mt-2">
+                              {errors.password}
+                            </span>
+                          )}
+                        </div>
+                        <div className="flex items-center text-black justify-between">
+                          <div className="flex ms-auto">
+                            <button
+                              type="button"
+                              className="text-end text-sm text-heading ps-3 underline hover:no-underline focus:outline-none"
+                            >
+                              Forgot password?
+                            </button>
+                          </div>
+                        </div>
+                        <button
+                          type="submit"
+                          className="w-full text-center py-3 rounded bg-emerald-500 text-white hover:bg-emerald-600 transition-all focus:outline-none my-1"
+                        >
+                          Login
+                        </button>
                       </div>
-                      <button
-                        type="submit"
-                        className="w-full text-center py-3 rounded bg-emerald-500 text-white hover:bg-emerald-600 transition-all focus:outline-none my-1"
-                      >
-                        Login
-                      </button>
-                    </div>
-                  </Form>)}
+                    </Form>
+                  )}
                 </Formik>
                 <div className="my-8 after:bg-gray-100 before:bg-gray-100 fo10t-sans text-center font-medium">
                   OR
@@ -204,10 +220,13 @@ const Login = ({isOpen, setIsOpenLogin, setIsOpenRegister}) => {
                 <div className="text-center text-sm text-gray-900 mt-4">
                   <div className="text-gray-500 mt-2.5">
                     Not have a account ?
-                    <button onClick={()=>{
-                      setIsOpenRegister(true)
-                      setIsOpenLogin(false)
-                    }} className="text-gray-800 hover:text-emerald-500 font-bold mx-2">
+                    <button
+                      onClick={() => {
+                        setIsOpenRegister(true);
+                        dispatch(isLoginAction(false));
+                      }}
+                      className="text-gray-800 hover:text-emerald-500 font-bold mx-2"
+                    >
                       Register
                     </button>
                   </div>
@@ -225,7 +244,7 @@ const Login = ({isOpen, setIsOpenLogin, setIsOpenRegister}) => {
             leaveTo="opacity-0"
           >
             <div
-              onClose={() => setIsOpenLogin(false)}
+              onClick={() => dispatch(isLoginAction(false))}
               className="absolute right-5 top-5"
             >
               <button

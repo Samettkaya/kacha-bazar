@@ -1,6 +1,10 @@
 import React from "react";
 import{ Link} from "react-router-dom"
-function Header({isOpenLogin,setIsOpenLogin}) {
+import{ useDispatch} from "react-redux"
+import { isLoginAction } from "../../store/reducers/isOpenSlice";
+function Header() {
+  const dispatch = useDispatch()
+  
   return (
     <div className=" hidden lg:block bg-gray-100">
       <div className="max-w-screen-2xl mx-auto px-3 sm:px-10">
@@ -37,7 +41,7 @@ function Header({isOpenLogin,setIsOpenLogin}) {
             <span className="mx-2">|</span>
             <Link to="/user/dashboard" className="!no-underline !text-black font-medium cursor-pointer hover:!text-emerald-600">My account</Link>
             <span className="mx-2">|</span>
-            <button onClick={()=>setIsOpenLogin(true)} className="!no-underline !text-black flex items-center font-medium cursor-pointer hover:!text-emerald-600 ">
+            <button onClick={()=>dispatch(isLoginAction(true))} className="!no-underline !text-black flex items-center font-medium cursor-pointer hover:!text-emerald-600 ">
               <span className="mr-1">
                 <svg
                   stroke="currentColor"

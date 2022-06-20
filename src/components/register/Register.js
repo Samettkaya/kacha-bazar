@@ -2,7 +2,11 @@ import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
-const Register = ({ isOpen, setIsOpenRegister, setIsOpenLogin }) => {
+import { useDispatch } from "react-redux";
+import { isLoginAction } from "../../store/reducers/isOpenSlice";
+const Register = ({ isOpen, setIsOpenRegister }) => {
+
+  const dispatch = useDispatch();
   const SignupSchema = Yup.object().shape({
     fullName: Yup.string().required("Name is required!"),
     password: Yup.string().required("Password is required!"),
@@ -261,7 +265,7 @@ const Register = ({ isOpen, setIsOpenRegister, setIsOpenLogin }) => {
                     Already have a account ?
                     <button
                       onClick={() => {
-                        setIsOpenLogin(true);
+                        dispatch(isLoginAction(true));
                         setIsOpenRegister(false);
                       }}
                       className="text-gray-800 hover:text-emerald-500 font-bold mx-2"
