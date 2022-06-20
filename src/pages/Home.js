@@ -9,6 +9,7 @@ import LatestDiscountedProduct from "../components/latestDiscountedProduct/Lates
 import Cart from "../components/cart/Cart";
 
 function Home() {
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
