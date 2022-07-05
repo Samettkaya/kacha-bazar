@@ -17,7 +17,7 @@ const Login = ({ setIsOpenRegister }) => {
       <Dialog
         as="div"
         className=" fixed inset-0 overflow-y-auto text-center z-30"
-        onClose={() =>  dispatch(isLoginAction(true))}
+        onClose={() =>  dispatch(isLoginAction(false))}
       >
         <div className="min-h-screen px-4">
           <Transition.Child

@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import Modal from "../modal/Modal";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../store/reducers/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  decreaseCart,
+  incrementCart,
+} from "../../store/reducers/cartSlice";
 function Card({ data }) {
   let [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
 
   function closeModal() {
     setIsOpen(false);
@@ -17,7 +22,7 @@ function Card({ data }) {
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
   };
-
+ const Cart= cart.cartItems.find((cartItem) => cartItem.id === data.id) 
   return (
     <>
       {" "}
@@ -40,6 +45,7 @@ function Card({ data }) {
               Stock Out
             </span>
           )}
+
           <span
             style={{
               boxSizing: "borderBox",
@@ -128,8 +134,61 @@ function Card({ data }) {
                 </del>
               )}
             </div>
-            <button
-              disabled={data.stock===0?true:false}
+       
+            {Cart? (
+              <div>
+                <div className="h-9 w-auto flex flex-wrap items-center justify-evenly py-1 px-2 bg-emerald-500 text-white rounded">
+                  <button onClick={() => dispatch(decreaseCart(data))}>
+                    <span className="text-dark text-base">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        strokeWidth="0"
+                        viewBox="0 0 512 512"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="32"
+                          d="M400 256H112"
+                        ></path>
+                      </svg>
+                    </span>
+                  </button>
+                  <p className="text-sm text-dark px-1 font-semibold">
+            
+                {Cart.cartQuantity}
+                  </p>
+                  <button onClick={() => dispatch(incrementCart(data))}>
+                    <span className="text-dark text-base">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        strokeWidth="0"
+                        viewBox="0 0 512 512"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="32"
+                          d="M256 112v288m144-144H112"
+                        ></path>
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <button
+              disabled={data.stock === 0 ? true : false}
               onClick={() => handleAddToCart(data)}
               ariallabel="chart"
               className="cursor-pointer h-9 w-9 flex items-center justify-center border border-gray-200 rounded text-emerald-500 hover:border-emerald-500 hover:bg-emerald-500 hover:text-white transition-all"
@@ -151,6 +210,7 @@ function Card({ data }) {
                 </svg>
               </span>
             </button>
+            )}
           </div>
         </div>
       </div>

@@ -690,7 +690,7 @@ export const PopularProductData = [
     stock: 59,
     images: [{id:1,small:images['product-6.png']},{id:2,medium:images['Calabaza-Squash-Package-each-2x.png']}],
     category: "Fresh Vegetable",
-    href: "calabazasquash",
+    href: "calabaza-squash",
     tag: [
       { id: 1, name: "calabaza-squash" },
       { id: 2, name: "fresh vegetable" },
@@ -1163,7 +1163,7 @@ export function getProductById(title){
 }
 
 export function getProductByCategory(category){
-  return Products.filter((product)=>product.category.toLowerCase() === category)
+  return Products.filter((product)=>product.category.toLowerCase() === category.toLowerCase())
 }
 
 export function getProductByName(value){

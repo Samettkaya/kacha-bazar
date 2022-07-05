@@ -3,17 +3,16 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { searchAction } from "../../store/reducers/searchSlice";
 
-
 function SearchBar() {
-  
-  const [value, setValue] = useState("")
-  const dispatch = useDispatch()
+  const [value, setValue] = useState();
+
+  const dispatch = useDispatch();
   let navigate = useNavigate();
-  const handleSearchClick=()=>{
-     navigate("search?query="+value)
-     dispatch(searchAction({value: value,path:"query"}))
-     
-  }
+  const handleSearchClick = () => {
+    navigate("search?query=" + value);
+    dispatch(searchAction({ value: value, path: "query" }));
+    setValue()
+  };
 
   return (
     <div className="w-full transition-all duration-200 ease-in-out lg:flex lg:max-w-[520px] xl:max-w-[750px] 2xl:max-w-[900px] md:mx-12 lg:mx-4 xl:mx-0">
@@ -22,16 +21,17 @@ function SearchBar() {
           <div className="relative pr-12 md:pr-14 bg-white overflow-hidden shadow-sm rounded-md w-full">
             <label className="flex items-center py-0.5">
               <input
-              onChange={(e)=>setValue(e.target.value)}
+               value={value}
+               name="value"
+                onChange={(e) => setValue(e.target.value)}
                 className="form-input w-full pl-5 appearance-none transition ease-in-out border text-input text-sm font-sans rounded-md min-h-10 h-10 duration-200 bg-white focus:ring-0 outline-none border-none focus:outline-none placeholder-gray-500 placeholder-opacity-75"
                 placeholder="Search for products (e.g. fish, apple, oil)"
-               
               />
             </label>
             <button
-            onClick={()=>handleSearchClick()}
+              type="submit"
+              onClick={() => handleSearchClick()}
               aria-label="Search"
-             
               className="outline-none text-xl text-gray-400 absolute top-0 right-0 end-0 w-12 md:w-14 h-full flex items-center justify-center transition duration-200 ease-in-out hover:text-heading focus:outline-none"
             >
               <svg

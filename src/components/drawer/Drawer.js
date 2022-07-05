@@ -5,7 +5,7 @@ import "rsuite/dist/rsuite.min.css";
 import { useSelector, useDispatch } from "react-redux";
 import { shoppingCardAction } from "../../store/reducers/shoppingCardSlice";
 import { decreaseCart, getTotals, incrementCart, removeFromCart } from "../../store/reducers/cartSlice";
-function DrawerCart({}) {
+function DrawerCart() {
   const open = useSelector((state) => state.shoppingCard.value);
   const cart = useSelector((state) => state.cart);
   const{cartTotalAmount}=useSelector((state) => state.cart)
