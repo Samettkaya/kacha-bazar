@@ -18,15 +18,20 @@ import DrawerCart from "./components/drawer/Drawer";
 import Search from "./components/search/Search";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
-import { useState } from "react";
+import { Fragment, useState } from "react";
+import User from "./components/user/User";
+import Dashboard from "./components/dashboard/Dashboard";
+import ChangePassword from "./components/changePassword/ChangePassword";
+import MyOrders from "./components/myOrders/MyOrders";
+import UpdateProfile from "./components/updateProfile/UpdateProfile";
 
 function App() {
-
   let [isOpenRegister, setIsOpenRegister] = useState(false);
   return (
-    <div>
-      <Header/>
+    <Fragment>
+      <Header />
       <Navigation />
+
       <Routes>
         <Route path="/" element={<Home />} />
 
@@ -36,6 +41,12 @@ function App() {
         <Route path="checkout" element={<Checkout />} />
         <Route path="search" element={<Search />} />
         <Route path="order" element={<Order />} />
+        <Route path="user" element={<User />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="my-orders" element={<MyOrders />} />
+          <Route path="update-profile" element={<UpdateProfile />} />
+          <Route path="change-password" element={<ChangePassword />} />
+        </Route>
         <Route path="*" element={<Home />} />
       </Routes>
       <div>
@@ -44,14 +55,17 @@ function App() {
       <div>
         <SideBar />
         <DrawerCart />
-        <Login  setIsOpenRegister={setIsOpenRegister} />
-        <Register isOpen={isOpenRegister} setIsOpenRegister={setIsOpenRegister} />
+        <Login setIsOpenRegister={setIsOpenRegister} />
+        <Register
+          isOpen={isOpenRegister}
+          setIsOpenRegister={setIsOpenRegister}
+        />
       </div>
       <div className="w-full">
         <MobileApp />
         <Footer />
       </div>
-    </div>
+    </Fragment>
   );
 }
 
