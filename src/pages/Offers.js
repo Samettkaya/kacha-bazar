@@ -1,8 +1,7 @@
-import React from "react";
-import ins1 from "../../assets/img/ins3.png";
-import { useCountDown } from "../../hooks/useCountDown";
-import DateTimeDisplay from "../dateTimeDisplay/DateTimeDisplay";
-
+import React, { useEffect } from "react";
+import DateTimeDisplay from "../components/dateTimeDisplay/DateTimeDisplay";
+import { Coupon } from "../fakeData/coupon";
+import { useCountDown } from "../hooks/useCountDown";
 const ExpiredNotice = ({ counter }) => {
   return (
     <span className="inline-block mb-2">
@@ -35,18 +34,17 @@ const ShowCounter = ({ days, hours, minutes, seconds }) => {
   );
 };
 
-function LatestDiscountCouponCode({ data }) {
-  const targetDate = new Date(data.endTime).getTime();
+const ShowCoupon = ({ item }) => {
+  const targetDate = new Date(item.endTime).getTime();
   const [days, hours, minutes, seconds] = useCountDown(targetDate);
   const counter = days + hours + minutes + seconds;
-
   const onchangeClipboard = (value) => {
     navigator.clipboard.writeText(value);
   };
 
   return (
-    <div className="coupon coupon-home mx-4 my-5 block md:flex lg:flex md:justify-between lg:justify-between items-center bg-white rounded-md shadow">
-      <div className="tengah py-2 px-3 flex items-center justify-items-start">
+    <div className="block md:flex lg:flex md:justify-between lg:justify-between itemms-center bg-white rounded-md shadow-sm">
+      <div className="p-6 flex items-center justify-items-start">
         <figure>
           <span
             style={{
@@ -96,9 +94,9 @@ function LatestDiscountCouponCode({ data }) {
               />
             </span>
             <img
-              alt={data.title}
-              srcSet={`${data.logo} 128w,${data.logo} 256w`}
-              src={`${data.logo} 256w`}
+              alt={item.title}
+              srcSet={`${item.logo} 128w,${item.logo} 256w`}
+              src={`${item.logo} 256w`}
               decoding="async"
               data-nimg="intrinsic"
               className="rounded-lg"
@@ -121,29 +119,7 @@ function LatestDiscountCouponCode({ data }) {
           </span>
         </figure>
 
-        <div className="ml-3">
-          <div className="flex items-center">
-            <h6 className="pl-1 text-base font-medium text-gray-600">
-              <span className="text-lg md:text-xl lg:text-xl text-red-500 font-bold">
-                {data.discountPercentage}% {""}
-              </span>
-              Off
-            </h6>
-            <div className="ml-2">
-              {counter <= 0 ? (
-                <span className="text-red-600 inline-block px-4 py-1 rounded-full font-medium text-xs bg-red-100">
-                  Inactive
-                </span>
-              ) : (
-                <span className="text-emerald-600 inline-block px-4 py-1 rounded-full font-medium text-xs bg-emerald-100">
-                  Active
-                </span>
-              )}
-            </div>
-          </div>
-          <h2 className="pl-1 text-base text-gray-700 leading-6 font-semibold mb-2">
-            {data.title}
-          </h2>
+        <div className="ml-5">
           {counter <= 0 ? (
             <ExpiredNotice counter={counter} />
           ) : (
@@ -154,38 +130,91 @@ function LatestDiscountCouponCode({ data }) {
               seconds={seconds}
             />
           )}
+          <h2 className=" text-lg leading-6 font-medium mb-3">{item.title}</h2>
+          <p className=" font-bold text-xl text-gray-600">
+            <span className="text-lg md:text-xl lg:text-2xl leading-12 text-red-500 font-extrabold">
+              {item.discountPercentage}%
+            </span>{" "}
+            Off
+          </p>
         </div>
       </div>
-      <div className="md:border-l-2 lg:border-l-2 border-dashed lg:w-1/3 md:w-1/3 relative px-4">
-        <div className="flex items-center 
-        md:before:-top-[30px] md:before:-left-[13px] md:before:absolute md:before:w-[25px] md:before:h-[25px] md:before:bg-[#fafafa] md:before:rounded-[100%] 
-        md:after:-bottom-[30px] md:after:-left-[13px] md:after:absolute md:after:w-[25px] md:after:h-[25px] md:after:bg-[#fafafa] md:after:rounded-[100%]
-        ">
+      <div className="md:border-l-2 lg:border-l-2 border-dashed lg:w-1/3 md:w-1/3 relative px-6">
+        <div
+          className=" flex lg:my-6 md:my-5 mb-6 items-center 
+          md:before:-top-[10px] md:before:-left-[13px] md:before:absolute md:before:w-[25px] md:before:h-[25px] md:before:bg-[#fafafa] md:before:rounded-[100%] 
+          md:after:-bottom-[10px] md:after:-left-[13px] md:after:absolute md:after:w-[25px] md:after:h-[25px] md:after:bg-[#fafafa] md:after:rounded-[100%]
+        
+        "
+        >
           <div className="w-full">
             <div className="block">
-              <div className=" border border-dashed bg-emerald-50 py-1 border-emerald-300 rounded-lg text-center block">
+              <div className=" font-medium flex items-center mb-1">
+                <span className="text-black">Coupon</span>
+                <div className="ml-2">
+                  {counter <= 0 ? (
+                    <span className="text-red-600 inline-block">Inactive</span>
+                  ) : (
+                    <span className="text-emerald-600 inline-block">
+                      Active
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div className=" border border-dashed bg-emerald-50 py-2 border-emerald-300 rounded-lg text-center block">
                 <button
-                  onClick={() => onchangeClipboard(data.couponCode)}
+                  onClick={() => {
+                    onchangeClipboard(item.couponCode);
+                  }}
                   className="block w-full"
                 >
-                  <span
-                    id=""
-                    className="uppercase  font-semibold text-sm leading-7 text-emerald-600"
-                  >
-                    {data.couponCode}
+                  <span className="uppercase  font-semibold text-base leading-7 text-emerald-600">
+                    {item.couponCode}{" "}
                   </span>
                 </button>
               </div>
             </div>
-            <p className="text-xs leading-4 text-gray-500 mt-2">
-              * This coupon apply when shopping more then
-              <span className="font-bold"> ${data.minimumAmount}</span>
+            <p className="text-xs leading-5 text-gray-500 mt-2">
+              * This coupon code will apply on{" "}
+              <span className="font-bold text-gray-700">
+                {item.productType} type products
+              </span>{" "}
+              and when you shopping more then{" "}
+              <span className="font-bold text-gray-700">
+                ${item.minimumAmount}
+              </span>{" "}
             </p>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default LatestDiscountCouponCode;
+const Offers = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return (
+    <div className="bg-gray-50">
+      <div className="flex justify-center py-10 lg:py-20 bg-page-header-bg bg-indigo-100 w-full bg-cover bg-no-repeat bg-bottom bg-page-header ">
+        <div className="flex mx-auto w-full max-w-screen-2xl px-3 sm:px-10">
+          <div className="w-full flex justify-center flex-col relative">
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-center text-black">
+              Mega Offer
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div className="mx-auto max-w-screen-2xl px-4 py-10 lg:py-20 sm:px-10">
+        <div className="grid gap-6 grid-cols-1 xl:grid-cols-2">
+          {Coupon.map((item, index) => (
+            <ShowCoupon item={item} key={index} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Offers;

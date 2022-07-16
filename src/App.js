@@ -24,6 +24,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import ChangePassword from "./components/changePassword/ChangePassword";
 import MyOrders from "./components/myOrders/MyOrders";
 import UpdateProfile from "./components/updateProfile/UpdateProfile";
+import Offers from "./pages/Offers";
 
 function App() {
   let [isOpenRegister, setIsOpenRegister] = useState(false);
@@ -41,6 +42,7 @@ function App() {
         <Route path="checkout" element={<Checkout />} />
         <Route path="search" element={<Search />} />
         <Route path="order" element={<Order />} />
+        <Route path="offer" element={<Offers />} />
         <Route path="user" element={<User />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="my-orders" element={<MyOrders />} />

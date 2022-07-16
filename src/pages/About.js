@@ -8,7 +8,7 @@ import women1 from "../assets/img/women-1.png";
 import women2 from "../assets/img/women-2.png";
 import women3 from "../assets/img/women-3.png";
 
-function About() {
+const About = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -18,7 +18,7 @@ function About() {
       <div className="flex justify-center py-10 lg:py-20 bg-page-header-bg bg-indigo-100 w-full bg-cover bg-no-repeat bg-bottom bg-page-header ">
         <div className="flex mx-auto w-full max-w-screen-2xl px-3 sm:px-10">
           <div className="w-full flex justify-center flex-col relative">
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-center">
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-center text-black">
               About US
             </h2>
           </div>
