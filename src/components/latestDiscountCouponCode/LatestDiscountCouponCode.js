@@ -1,175 +1,183 @@
 import React from "react";
 import ins1 from "../../assets/img/ins3.png";
-import ins2 from "../../assets/img/ins4.png";
-function LatestDiscountCouponCode() {
+import { useCountDown } from "../../hooks/useCountDown";
+import DateTimeDisplay from "../dateTimeDisplay/DateTimeDisplay";
+
+const ExpiredNotice = ({ counter }) => {
   return (
-    <div className="w-full group">
-      <div className="bg-gray-50 h-full border-2 border-orange-500 transition duration-150 ease-linear transform group-hover:border-emerald-500 rounded shadow">
-        <div className="bg-orange-100 text-gray-900 px-6 py-2 rounded-t border-b flex items-center justify-center">
-          <h3 className="text-base  font-normal ">
-            Latest Super Discount Active Coupon Code
-          </h3>
-        </div>
-        <div className="overflow-hidden">
-          <div className="coupon coupon-home mx-4 my-5 block md:flex lg:flex md:justify-between lg:justify-between items-center bg-white rounded-md shadow">
-            <div className="tengah py-2 px-3 flex items-center justify-items-start">
-              <figure>
-                <span
-                  style={{
-                    boxSizing: " border-box",
-                    display: "inline-block",
-                    overflow: "hidden",
-                    width: "initial",
-                    height: "initial",
-                    background: "none",
-                    opacity: "1",
-                    border: " 0px",
-                    margin: "0px",
-                    padding: "0px",
-                    position: "relative",
-                    maxWidth: "100%",
-                  }}
-                >
-                  <img src={ins1} />
+    <span className="inline-block mb-2">
+      <div className="flex items-center font-semibold text-black">
+        <DateTimeDisplay value="00" counter={counter} />
+        :
+        <DateTimeDisplay value="00" counter={counter} />
+        :
+        <DateTimeDisplay value="00" counter={counter} />
+        :
+        <DateTimeDisplay value="00" counter={counter} />
+      </div>
+    </span>
+  );
+};
+
+const ShowCounter = ({ days, hours, minutes, seconds }) => {
+  return (
+    <span className="inline-block mb-2">
+      <div className="flex items-center font-semibold text-black">
+        <DateTimeDisplay value={days} />
+        :
+        <DateTimeDisplay value={hours} />
+        :
+        <DateTimeDisplay value={minutes} />
+        :
+        <DateTimeDisplay value={seconds} />
+      </div>
+    </span>
+  );
+};
+
+function LatestDiscountCouponCode({ data }) {
+  const targetDate = new Date(data.endTime).getTime();
+  const [days, hours, minutes, seconds] = useCountDown(targetDate);
+  const counter = days + hours + minutes + seconds;
+
+  const onchangeClipboard = (value) => {
+    navigator.clipboard.writeText(value);
+  };
+
+  return (
+    <div className="coupon coupon-home mx-4 my-5 block md:flex lg:flex md:justify-between lg:justify-between items-center bg-white rounded-md shadow">
+      <div className="tengah py-2 px-3 flex items-center justify-items-start">
+        <figure>
+          <span
+            style={{
+              boxSizing: " border-box",
+              display: "inline-block",
+              overflow: "hidden",
+              width: "initial",
+              height: "initial",
+              background: "none",
+              opacity: "1",
+              border: " 0px",
+              margin: "0px",
+              padding: "0px",
+              position: "relative",
+              maxWidth: "100%",
+            }}
+          >
+            <span
+              style={{
+                boxSizing: "border-box",
+                display: "block",
+                width: "initial",
+                height: "initial",
+                background: "none",
+                opacity: "1",
+                border: "0px",
+                margin: "0px",
+                padding: "0px",
+                maxWidth: "100%",
+              }}
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27100%27%20height=%27100%27/%3e"
+                style={{
+                  display: "block",
+                  maxWidth: "100%",
+                  width: "initial",
+                  height: "initial",
+                  background: "none",
+                  opacity: "1",
+                  border: "0px",
+                  margin: "0px",
+                  padding: "0px",
+                }}
+              />
+            </span>
+            <img
+              alt={data.title}
+              srcSet={`${data.logo} 128w,${data.logo} 256w`}
+              src={`${ins1} 256w`}
+              decoding="async"
+              data-nimg="intrinsic"
+              className="rounded-lg"
+              style={{
+                position: "absolute",
+                inset: "0px",
+                boxSizing: "border-box",
+                padding: "0px",
+                border: "none",
+                margin: "auto",
+                display: "block",
+                width: "0px",
+                height: "0px",
+                minWidth: "100%",
+                maxWidth: "100%",
+                minHeight: " 100%",
+                maxHeight: "100%",
+              }}
+            />
+          </span>
+        </figure>
+
+        <div className="ml-3">
+          <div className="flex items-center">
+            <h6 className="pl-1 text-base font-medium text-gray-600">
+              <span className="text-lg md:text-xl lg:text-xl text-red-500 font-bold">
+                {data.discountPercentage}% {""}
+              </span>
+              Off
+            </h6>
+            <div className="ml-2">
+              {counter <= 0 ? (
+                <span className="text-red-600 inline-block px-4 py-1 rounded-full font-medium text-xs bg-red-100">
+                  Inactive
                 </span>
-              </figure>
-              <div className="ml-3">
-                <div className="flex items-center">
-                  <h6 className="pl-1 text-base font-medium text-gray-600">
-                    <span className="text-lg md:text-xl lg:text-xl text-red-500 font-bold">
-                      10%
-                    </span>{" "}
-                    Off
-                  </h6>
-                  <div className="ml-2">
-                    <span className="text-emerald-600 inline-block px-4 py-1 rounded-full font-medium text-xs bg-emerald-100">
-                      Active
-                    </span>
-                  </div>
-                </div>
-                <h2 className="pl-1 text-base text-gray-700 leading-6 font-semibold mb-2">
-                  Summer Gift Voucher
-                </h2>
-                <span className="inline-block mb-2">
-                  <div className="flex items-center font-semibold">
-                    <span className="flex items-center justify-center bg-emerald-500 text-white  text-sm font-semibold px-2 py-1 rounded mx-1">
-                      23
-                    </span>
-                    :
-                    <span className="flex items-center justify-center bg-emerald-500 text-white  text-sm  font-semibold px-2 py-1 rounded mx-1">
-                      20
-                    </span>
-                    :
-                    <span className="flex items-center justify-center bg-emerald-500 text-white  text-sm  font-semibold px-2 py-1 rounded mx-1">
-                      4
-                    </span>
-                    :
-                    <span className="flex items-center justify-center bg-emerald-500 text-white  text-sm  font-semibold px-2 py-1 rounded mx-1">
-                      53
-                    </span>
-                  </div>
+              ) : (
+                <span className="text-emerald-600 inline-block px-4 py-1 rounded-full font-medium text-xs bg-emerald-100">
+                  Active
                 </span>
-              </div>
-            </div>
-            <div className="md:border-l-2 lg:border-l-2 border-dashed lg:w-1/3 md:w-1/3 relative px-4">
-              <div className="info flex items-center">
-                <div className="w-full">
-                  <div className="block">
-                    <div className=" border border-dashed bg-emerald-50 py-1 border-emerald-300 rounded-lg text-center block">
-                      <button className="block w-full">
-                        <span className="uppercase  font-semibold text-sm leading-7 text-emerald-600">
-                          SUMMER22
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                  <p className="text-xs leading-4 text-gray-500 mt-2">
-                    * This coupon apply when shopping more then
-                    <span className="font-bold"> $500</span>
-                  </p>
-                </div>
-              </div>
+              )}
             </div>
           </div>
-          <div className="coupon coupon-home mx-4 my-5 block md:flex lg:flex md:justify-between lg:justify-between items-center bg-white rounded-md shadow">
-            <div className="tengah py-2 px-3 flex items-center justify-items-start">
-              <figure>
-                <span
-                  style={{
-                    boxSizing: " border-box",
-                    display: "inline-block",
-                    overflow: "hidden",
-                    width: "initial",
-                    height: "initial",
-                    background: "none",
-                    opacity: "1",
-                    border: " 0px",
-                    margin: "0px",
-                    padding: "0px",
-                    position: "relative",
-                    maxWidth: "100%",
-                  }}
+          <h2 className="pl-1 text-base text-gray-700 leading-6 font-semibold mb-2">
+            {data.title}
+          </h2>
+          {counter <= 0 ? (
+            <ExpiredNotice counter={counter} />
+          ) : (
+            <ShowCounter
+              days={days}
+              hours={hours}
+              minutes={minutes}
+              seconds={seconds}
+            />
+          )}
+        </div>
+      </div>
+      <div className="md:border-l-2 lg:border-l-2 border-dashed lg:w-1/3 md:w-1/3 relative px-4">
+        <div className="info flex items-center">
+          <div className="w-full">
+            <div className="block">
+              <div className=" border border-dashed bg-emerald-50 py-1 border-emerald-300 rounded-lg text-center block">
+                <button
+                  onClick={() => onchangeClipboard(data.couponCode)}
+                  className="block w-full"
                 >
-                  <img src={ins2} />
-                </span>
-              </figure>
-              <div className="ml-3">
-                <div className="flex items-center">
-                  <h6 className="pl-1 text-base font-medium text-gray-600">
-                    <span className="text-lg md:text-xl lg:text-xl text-red-500 font-bold">
-                      15%
-                    </span>{" "}
-                    Off
-                  </h6>
-                  <div className="ml-2">
-                    <span className="text-emerald-600 inline-block px-4 py-1 rounded-full font-medium text-xs bg-emerald-100">
-                      Active
-                    </span>
-                  </div>
-                </div>
-                <h2 className="pl-1 text-base text-gray-700 leading-6 font-semibold mb-2">
-                Winter Gift Voucher
-                </h2>
-                <span className="inline-block mb-2">
-                  <div className="flex items-center font-semibold">
-                    <span className="flex items-center justify-center bg-emerald-500 text-white  text-sm font-semibold px-2 py-1 rounded mx-1">
-                      23
-                    </span>
-                    :
-                    <span className="flex items-center justify-center bg-emerald-500 text-white  text-sm  font-semibold px-2 py-1 rounded mx-1">
-                      20
-                    </span>
-                    :
-                    <span className="flex items-center justify-center bg-emerald-500 text-white  text-sm  font-semibold px-2 py-1 rounded mx-1">
-                      4
-                    </span>
-                    :
-                    <span className="flex items-center justify-center bg-emerald-500 text-white  text-sm  font-semibold px-2 py-1 rounded mx-1">
-                      53
-                    </span>
-                  </div>
-                </span>
+                  <span
+                    id=""
+                    className="uppercase  font-semibold text-sm leading-7 text-emerald-600"
+                  >
+                    {data.couponCode}
+                  </span>
+                </button>
               </div>
             </div>
-            <div className="md:border-l-2 lg:border-l-2 border-dashed lg:w-1/3 md:w-1/3 relative px-4">
-              <div className="info flex items-center">
-                <div className="w-full">
-                  <div className="block">
-                    <div className=" border border-dashed bg-emerald-50 py-1 border-emerald-300 rounded-lg text-center block">
-                      <button className="block w-full">
-                        <span className="uppercase  font-semibold text-sm leading-7 text-emerald-600">
-                          SUMMER21
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                  <p className="text-xs leading-4 text-gray-500 mt-2">
-                    * This coupon apply when shopping more then
-                    <span className="font-bold"> $500</span>
-                  </p>
-                </div>
-              </div>
-            </div>
+            <p className="text-xs leading-4 text-gray-500 mt-2">
+              * This coupon apply when shopping more then
+              <span className="font-bold"> ${data.minimumAmount}</span>
+            </p>
           </div>
         </div>
       </div>
