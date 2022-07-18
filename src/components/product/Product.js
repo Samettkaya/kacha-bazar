@@ -181,7 +181,10 @@ function Product() {
                             <p className="font-semibold flex items-center justify-center h-full transition-colors duration-250 ease-in-out cursor-default flex-shrink-0 text-base text-heading w-8 md:w-20 xl:w-24">
                               {total}
                             </p>
-                            <button onClick={()=>{
+                            <button
+                            disabled={product.stock === 0 ? true : false}
+                            onClick={()=>{
+                              
                               setTotal(total+1)
                             }} className="flex items-center justify-center h-full flex-shrink-0 transition ease-in-out duration-300 focus:outline-none w-8 md:w-12 text-heading border-s border-gray-300 hover:text-gray-500">
                               <span className="text-dark text-base">
@@ -202,7 +205,7 @@ function Product() {
                               </span>
                             </button>
                           </div>
-                          <button onClick={()=>handleAddToCart(product)} className="text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-4 ml-4 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-emerald-500 hover:bg-emerald-600 w-full h-12">
+                          <button  disabled={product.stock === 0 ? true : false} onClick={()=>handleAddToCart(product)} className="text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-4 ml-4 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-emerald-500 hover:bg-emerald-600 w-full h-12">
                             Add To Cart
                           </button>
                         </div>

@@ -47,7 +47,7 @@ function LatestDiscountCouponCode({ data }) {
   return (
     <div className="coupon coupon-home mx-4 my-5 block md:flex lg:flex md:justify-between lg:justify-between items-center bg-white rounded-md shadow">
       <div className="tengah py-2 px-3 flex items-center justify-items-start">
-        <figure>
+        <figure className="flex items-center" >
           <span
             style={{
               boxSizing: " border-box",
