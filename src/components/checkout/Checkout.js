@@ -2,7 +2,10 @@ import { Field, Form, Formik } from "formik";
 import React, { useEffect } from "react";
 import OrderSummary from "../orderSummary/OrderSummary";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector,useDispatch } from "react-redux";
+import randomId from "random-id";
+
 const SignupSchema = Yup.object().shape({
   firstName: Yup.string().required("First Name is required!"),
   lastName: Yup.string().required("Last name is required!"),
@@ -21,32 +24,55 @@ function Checkout() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  let navigate = useNavigate();
+  var Id = randomId(30,"aA0");
+  var Invoice = randomId(5, "0");
+
+  const { ...item } = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
+  const onchangeSubmit = (value) => {
+    const data = {
+      createdDate: new Date(),
+      updatedDate: new Date(),
+      invoce: Invoice,
+      id: Id,
+      cart: item,
+      ...value,
+    };
+
+    localStorage.setItem(Id, JSON.stringify(data));
+    setTimeout(() => {
+      navigate("/order/" + Id);
+     
+    }, 2000);
+  };
+
   return (
     <div className="bg-gray-50">
       <div className="mx-auto max-w-screen-2xl px-3 sm:px-10">
         <div className="py-10 lg:py-12 px-0 2xl:max-w-screen-2xl w-full xl:max-w-screen-xl flex flex-col md:flex-row lg:flex-row">
           <div className="md:w-full lg:w-3/5 flex h-full flex-col order-2 sm:order-1 lg:order-1">
             <div className="mt-5 md:mt-0 md:col-span-2">
+              
               <Formik
                 initialValues={{
-                  firstName: "",
-                  lastName: "",
-                  email: "",
-                  phoneNumber: "",
-                  streetAddress: "",
-                  city: "",
-                  country: "",
-                  zipPostal: "",
-                  shippingOption: "",
-                  paymentMethod: "",
+                  firstName: "samet",
+                  lastName: "kaya",
+                  email: "kaya67380@gmail.com",
+                  phoneNumber: "1235",
+                  streetAddress: "kadıköy",
+                  city: "istanbul",
+                  country: "kadıköy",
+                  zipPostal: "3400",
+                  shippingOption: "FedEx",
+                  paymentMethod: "COD",
                 }}
                 validationSchema={SignupSchema}
                 onSubmit={async (values) => {
-                  await new Promise((r) => setTimeout(r, 500));
-                  alert(JSON.stringify(values, null, 2));
+                  onchangeSubmit(values);
                 }}
               >
-                {({ errors }) => {
+                {({ errors, touched }) => {
                   return (
                     <Form>
                       <div>
@@ -66,12 +92,14 @@ function Checkout() {
                                 className="py-2 px-4 md:px-5 w-full appearance-none border text-sm opacity-75 text-input rounded-md placeholder-body min-h-12 transition duration-200 focus:ring-0 ease-in-out bg:white border-gray-200 focus:outline-none focus:border-emerald-500 h-11 md:h-12"
                                 id="firstName"
                                 name="firstName"
-                                placeholder="John"
+                                placeholder="Samet"
                               />
                             </div>
-                            <span className="text-red-400 text-sm mt-2">
-                              {errors.firstName}
-                            </span>
+                            {errors.firstName && touched.firstName && (
+                              <span className="text-red-400 text-sm mt-2">
+                                {errors.firstName}
+                              </span>
+                            )}
                           </div>
                           <div className="col-span-6 sm:col-span-3">
                             <label
@@ -85,12 +113,14 @@ function Checkout() {
                                 className="py-2 px-4 md:px-5 w-full appearance-none border text-sm opacity-75 text-input rounded-md placeholder-body min-h-12 transition duration-200 focus:ring-0 ease-in-out bg:white border-gray-200 focus:outline-none focus:border-emerald-500 h-11 md:h-12"
                                 id="lastName"
                                 name="lastName"
-                                placeholder="Doe"
+                                placeholder="Kaya"
                               />
                             </div>
-                            <span className="text-red-400 text-sm mt-2">
-                              {errors.lastName}
-                            </span>
+                            {errors.lastName && touched.lastName && (
+                              <span className="text-red-400 text-sm mt-2">
+                                {errors.lastName}
+                              </span>
+                            )}
                           </div>
                           <div className="col-span-6 sm:col-span-3">
                             <label
@@ -104,12 +134,14 @@ function Checkout() {
                                 className="py-2 px-4 md:px-5 w-full appearance-none border text-sm opacity-75 text-input rounded-md placeholder-body min-h-12 transition duration-200 focus:ring-0 ease-in-out bg:white border-gray-200 focus:outline-none focus:border-emerald-500 h-11 md:h-12"
                                 id="email"
                                 name="email"
-                                placeholder="youreemail@gmail.com"
+                                placeholder="info@gmail.com"
                               />
                             </div>
-                            <span className="text-red-400 text-sm mt-2">
-                              {errors.email}
-                            </span>
+                            {errors.email && touched.email && (
+                              <span className="text-red-400 text-sm mt-2">
+                                {errors.email}
+                              </span>
+                            )}
                           </div>
 
                           <div className="col-span-6 sm:col-span-3">
@@ -124,12 +156,14 @@ function Checkout() {
                                 className="py-2 px-4 md:px-5 w-full appearance-none border text-sm opacity-75 text-input rounded-md placeholder-body min-h-12 transition duration-200 focus:ring-0 ease-in-out bg:white border-gray-200 focus:outline-none focus:border-emerald-500 h-11 md:h-12"
                                 id="phoneNumber"
                                 name="phoneNumber"
-                                placeholder="+062-6532956"
+                                placeholder="+90-1234567891"
                               />
                             </div>
-                            <span className="text-red-400 text-sm mt-2">
-                              {errors.phoneNumber}
-                            </span>
+                            {errors.phoneNumber && touched.phoneNumber && (
+                              <span className="text-red-400 text-sm mt-2">
+                                {errors.phoneNumber}
+                              </span>
+                            )}
                           </div>
                         </div>
                       </div>
@@ -150,12 +184,14 @@ function Checkout() {
                                 className="py-2 px-4 md:px-5 w-full appearance-none border text-sm opacity-75 text-input rounded-md placeholder-body min-h-12 transition duration-200 focus:ring-0 ease-in-out bg:white border-gray-200 focus:outline-none focus:border-emerald-500 h-11 md:h-12"
                                 id="streetAddress"
                                 name="streetAddress"
-                                placeholder="123 Boulevard Rd, Beverley Hills"
+                                placeholder="ümraniye sondurak No:3 Daire:70 Ümraniye/İstanbul"
                               />
                             </div>
-                            <span className="text-red-400 text-sm mt-2">
-                              {errors.streetAddress}
-                            </span>
+                            {errors.streetAddress && touched.streetAddress && (
+                              <span className="text-red-400 text-sm mt-2">
+                                {errors.streetAddress}
+                              </span>
+                            )}
                           </div>
                           <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                             <label
@@ -169,12 +205,14 @@ function Checkout() {
                                 className="py-2 px-4 md:px-5 w-full appearance-none border text-sm opacity-75 text-input rounded-md placeholder-body min-h-12 transition duration-200 focus:ring-0 ease-in-out bg:white border-gray-200 focus:outline-none focus:border-emerald-500 h-11 md:h-12"
                                 id="city"
                                 name="city"
-                                placeholder="Los Angeles"
+                                placeholder="İstanbul"
                               />
                             </div>
-                            <span className="text-red-400 text-sm mt-2">
-                              {errors.city}
-                            </span>
+                            {errors.city && touched.city && (
+                              <span className="text-red-400 text-sm mt-2">
+                                {errors.city}
+                              </span>
+                            )}
                           </div>
                           <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                             <label
@@ -188,12 +226,14 @@ function Checkout() {
                                 className="py-2 px-4 md:px-5 w-full appearance-none border text-sm opacity-75 text-input rounded-md placeholder-body min-h-12 transition duration-200 focus:ring-0 ease-in-out bg:white border-gray-200 focus:outline-none focus:border-emerald-500 h-11 md:h-12"
                                 id="country"
                                 name="country"
-                                placeholder="United States"
+                                placeholder="Ümraniye"
                               />
                             </div>
-                            <span className="text-red-400 text-sm mt-2">
-                              {errors.country}
-                            </span>
+                            {errors.country && touched.country && (
+                              <span className="text-red-400 text-sm mt-2">
+                                {errors.country}
+                              </span>
+                            )}
                           </div>
                           <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                             <label
@@ -207,12 +247,14 @@ function Checkout() {
                                 className="py-2 px-4 md:px-5 w-full appearance-none border text-sm opacity-75 text-input rounded-md placeholder-body min-h-12 transition duration-200 focus:ring-0 ease-in-out bg:white border-gray-200 focus:outline-none focus:border-emerald-500 h-11 md:h-12"
                                 id="zipPostal"
                                 name="zipPostal"
-                                placeholder="2345"
+                                placeholder="34000"
                               />
                             </div>
-                            <span className="text-red-400 text-sm mt-2">
-                              {errors.zipPostal}
-                            </span>
+                            {errors.zipPostal && touched.zipPostal && (
+                              <span className="text-red-400 text-sm mt-2">
+                                {errors.zipPostal}
+                              </span>
+                            )}
                           </div>
                         </div>
                         <label className="block text-gray-500 font-medium text-sm leading-none mb-2">
@@ -278,9 +320,12 @@ function Checkout() {
                                 </label>
                               </div>
                             </div>
-                            <span className="text-red-400 text-sm mt-2">
-                              {errors.shippingOption}
-                            </span>
+                            {errors.shippingOption &&
+                              touched.shippingOption && (
+                                <span className="text-red-400 text-sm mt-2">
+                                  {errors.shippingOption}
+                                </span>
+                              )}
                           </div>
                           <div className="col-span-6 sm:col-span-3">
                             <div>
@@ -341,9 +386,12 @@ function Checkout() {
                                 </label>
                               </div>
                             </div>
-                            <span className="text-red-400 text-sm mt-2">
-                              {errors.shippingOption}
-                            </span>
+                            {errors.shippingOption &&
+                              touched.shippingOption && (
+                                <span className="text-red-400 text-sm mt-2">
+                                  {errors.shippingOption}
+                                </span>
+                              )}
                           </div>
                         </div>
                       </div>
@@ -352,9 +400,7 @@ function Checkout() {
                         <h2 className="font-semibold  text-base text-gray-700 pb-3">
                           03. Payment Details
                         </h2>
-                        <div className="mb-3">
-                          Stripe is Payment
-                        </div>
+                        <div className="mb-3">Stripe is Payment</div>
                         <div className="grid grid-cols-6 gap-6">
                           <div className="col-span-6 sm:col-span-3">
                             <div className="px-3 py-4 border border-gray-200 bg-white rounded-md">
@@ -388,9 +434,11 @@ function Checkout() {
                                 </div>
                               </label>
                             </div>
-                            <span className="text-red-400 text-sm mt-2">
-                              {errors.paymentMethod}
-                            </span>
+                            {errors.paymentMethod && touched.paymentMethod && (
+                              <span className="text-red-400 text-sm mt-2">
+                                {errors.paymentMethod}
+                              </span>
+                            )}
                           </div>
                           <div className="col-span-6 sm:col-span-3">
                             <div className="px-3 py-4 border border-gray-200 bg-white rounded-md">
@@ -424,9 +472,11 @@ function Checkout() {
                                 </div>
                               </label>
                             </div>
-                            <span className="text-red-400 text-sm mt-2">
-                              {errors.paymentMethod}
-                            </span>
+                            {errors.paymentMethod && touched.paymentMethod && (
+                              <span className="text-red-400 text-sm mt-2">
+                                {errors.paymentMethod}
+                              </span>
+                            )}
                           </div>
                           <div></div>
                         </div>
