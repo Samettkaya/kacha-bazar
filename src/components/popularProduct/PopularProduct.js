@@ -1,4 +1,5 @@
 import React from "react";
+import { popularProducts } from "../../fakeData/Products";
 import { PopularProductData } from "../../fakeData/ProductsData";
 
 import Card from "../card/Card";
@@ -11,7 +12,7 @@ function PopularProduct() {
     >
       <div className="mb-10 flex justify-center">
         <div className="text-center w-full lg:w-2/5">
-          <h2 className="text-xl lg:text-2xl mb-2 font-semibold">
+          <h2 className="text-xl lg:text-2xl mb-2 text-black font-semibold">
             Popular Products for Daily Shopping
           </h2>
           <p className="text-base text-gray-600 leading-6">
@@ -24,7 +25,7 @@ function PopularProduct() {
       <div className="flex">
         <div className="w-full">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-2 md:gap-3 lg:gap-3 ">
-            {PopularProductData.map((data, index) => (
+            {popularProducts.map((data, index) => (
               <Card key={index} data={data} />
             ))}
           </div>

@@ -112,7 +112,7 @@ function DrawerCart() {
                 >
                   <div className="relative flex rounded-full border border-gray-100 shadow-sm overflow-hidden flex-shrink-0 cursor-pointer mr-4">
                     <img
-                      src={data.images[0].small}
+                      src={data.image}
                       width="40"
                       height="40"
                       alt={data.title}

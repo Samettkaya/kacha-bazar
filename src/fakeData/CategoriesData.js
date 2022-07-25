@@ -47,7 +47,7 @@ export const CategoriesData = [
     icon: category4,
     path:"cooking-essentials",
     subCategories: [
-      { name: "Oil", path: "oi" },
+      { name: "Oil", path: "oil" },
       { name: "Rice", path: "rice" },
       { name: "Flour", path: "flour" },
     ],

@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import {
-  getProductByCategory,
-  getProductById,
-} from "../../fakeData/ProductsData";
 import { useDispatch } from "react-redux";
 import Card from "../card/Card";
 import Informations from "../informations/Informations";
 import SocialNetwork from "../socialNetwork/SocialNetwork";
 import { addByIncrement } from "../../store/reducers/cartSlice";
+import { getProductByCategory } from "../../fakeData/Products";
+import { getProductById } from "../../fakeData/ProductsData";
 
 function Product() {
   const [total, setTotal] = useState(1)

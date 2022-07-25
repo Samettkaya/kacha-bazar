@@ -6,6 +6,7 @@ import {
   decreaseCart,
   incrementCart,
 } from "../../store/reducers/cartSlice";
+import { original } from "@reduxjs/toolkit";
 function Card({ data }) {
   let [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ function Card({ data }) {
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
   };
- const Cart= cart.cartItems.find((cartItem) => cartItem.id === data.id) 
+  const Cart = cart.cartItems.find((cartItem) => cartItem.id === data.id);
   return (
     <>
       {" "}
@@ -31,14 +32,14 @@ function Card({ data }) {
           onClick={openModal}
           className="relative flex justify-center w-full cursor-pointer"
         >
-          {data.sales === 0 ? (
+          {data.discount === 0 ? (
             ""
           ) : (
             <span className="absolute text-dark text-xs bg-orange-500 text-white py-1 px-2 rounded font-medium z-10 right-4 top-4">
-              {data.sales}% Off
+              {Math.ceil(data.discount)}% Off
             </span>
           )}
-          {data.stock !== 0 ? (
+          {data.quantity !== 0 ? (
             ""
           ) : (
             <span className="absolute inline-flex items-center justify-center px-2 py-1 bg-red-100 text-red-600 border-0 rounded-full text-xs font-semibold z-10 left-4 top-4">
@@ -91,7 +92,7 @@ function Card({ data }) {
               />
             </span>
             <img
-              src={data.images[0].small}
+              src={data.image}
               decoding="async"
               data-nimg="intrinsic"
               className="object-cover transition duration-150 ease-linear transform group-hover:scale-105"
@@ -126,16 +127,16 @@ function Card({ data }) {
               <span className="inline-block text-lg font-semibold text-gray-800">
                 ${data.price}
               </span>
-              {data.oldPrice === 0 ? (
+              {data.price ===data.originalPrice ? (
                 ""
               ) : (
                 <del className="sm:text-sm font-normal text-base text-gray-400 ml-1">
-                  ${data.oldPrice}
+                  ${data.originalPrice}
                 </del>
               )}
             </div>
-       
-            {Cart? (
+
+            {Cart ? (
               <div>
                 <div className="h-9 w-auto flex flex-wrap items-center justify-evenly py-1 px-2 bg-emerald-500 text-white rounded">
                   <button onClick={() => dispatch(decreaseCart(data))}>
@@ -160,8 +161,7 @@ function Card({ data }) {
                     </span>
                   </button>
                   <p className="text-sm text-dark px-1 font-semibold">
-            
-                {Cart.cartQuantity}
+                    {Cart.cartQuantity}
                   </p>
                   <button onClick={() => dispatch(incrementCart(data))}>
                     <span className="text-dark text-base">
@@ -188,28 +188,28 @@ function Card({ data }) {
               </div>
             ) : (
               <button
-              disabled={data.stock === 0 ? true : false}
-              onClick={() => handleAddToCart(data)}
-              ariallabel="chart"
-              className="cursor-pointer h-9 w-9 flex items-center justify-center border border-gray-200 rounded text-emerald-500 hover:border-emerald-500 hover:bg-emerald-500 hover:text-white transition-all"
-            >
-              <span className="text-xl">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                  />
-                </svg>
-              </span>
-            </button>
+                disabled={data.quantity === 0 ? true : false}
+                onClick={() => handleAddToCart(data)}
+                ariallabel="chart"
+                className="cursor-pointer h-9 w-9 flex items-center justify-center border border-gray-200 rounded text-emerald-500 hover:border-emerald-500 hover:bg-emerald-500 hover:text-white transition-all"
+              >
+                <span className="text-xl">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                    />
+                  </svg>
+                </span>
+              </button>
             )}
           </div>
         </div>

@@ -1,8 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {
-  getProductByCategory,
-  getProductByName,
-} from "../../fakeData/ProductsData";
+import { getProductByCategory, getProductByName } from "../../fakeData/Products";
 
 const initialState = {
   value: null,

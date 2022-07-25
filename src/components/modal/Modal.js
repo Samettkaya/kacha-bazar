@@ -57,10 +57,10 @@ export default function Modal({ isOpen, closeModal, data }) {
                         }}
                       >
                         {" "}
-                        <Link to={"/product/" + data.href}>
+                        <Link to={"/product/" + data.slug}>
                           <img
                             className=" w-full h-auto md:w-[420px] md:h-[420px] "
-                            src={data.images[1].medium}
+                            src={data.image}
                             alt={data.title}
                           />
                         </Link>
@@ -71,7 +71,7 @@ export default function Modal({ isOpen, closeModal, data }) {
                         <h1 className="text-heading text-lg md:text-xl lg:text-2xl font-semibold !text-black !no-underline  cursor-pointer">
                           <Link className="!no-underline  !text-black " to={"/product/" + data.href}>{data.title}</Link>
                         </h1>
-                        {data.stock === 0 ? (
+                        {data.quantity === 0 ? (
                           <span className="bg-red-100 text-red-600 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold  mt-2">
                             Stock Out
                           </span>
@@ -89,11 +89,11 @@ export default function Modal({ isOpen, closeModal, data }) {
                           <span className="inline-block text-black text-2xl">
                             ${data.price}
                           </span>
-                          {data.oldPrice === 0 ? (
+                          {data.price === data.originalPrice ? (
                             ""
                           ) : (
                             <del className="text-lg font-normal text-gray-400 ml-1">
-                              ${data.oldPrice}
+                              ${data.originalPrice}
                             </del>
                           )}
                         </div>
@@ -157,14 +157,15 @@ export default function Modal({ isOpen, closeModal, data }) {
                       <div className="flex flex-col mt-4">
                         <span className=" font-semibold py-1 text-sm d-block">
                           <span className="text-gray-700">Category:</span>{" "}
-                          <span className="text-gray-500">{data.category}</span>
+                          <span className="text-gray-500">{data.children}</span>
                         </span>
                         <div className="flex flex-row">
-                          {data.tag.map((tag, index) => (
+                          {data.tag.map((tag, index) => {
+                            return(
                             <span key={index} className="bg-gray-50 mr-2 border-0 text-gray-600 rounded-full inline-flex items-center justify-center px-3 py-1 text-xs font-semibold  mt-2">
-                              {tag.name}
+                              {tag}
                             </span>
-                          ))}
+                          )})} 
                         </div>
                       </div>
                     </div>

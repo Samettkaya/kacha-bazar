@@ -11,7 +11,7 @@ function SearchBar() {
   const handleSearchClick = () => {
     navigate("search?query=" + value);
     dispatch(searchAction({ value: value, path: "query" }));
-    setValue()
+   
   };
 
   return (
@@ -23,6 +23,12 @@ function SearchBar() {
               <input
                value={value}
                name="value"
+               onKeyPress={event => {
+                if (event.key === 'Enter') {
+                  handleSearchClick()
+
+                }
+              }}
                 onChange={(e) => setValue(e.target.value)}
                 className="form-input w-full pl-5 appearance-none transition ease-in-out border text-input text-sm font-sans rounded-md min-h-10 h-10 duration-200 bg-white focus:ring-0 outline-none border-none focus:outline-none placeholder-gray-500 placeholder-opacity-75"
                 placeholder="Search for products (e.g. fish, apple, oil)"
