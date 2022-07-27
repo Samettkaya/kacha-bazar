@@ -1,6 +1,6 @@
 import React from 'react'
 import { discountProducts } from '../../fakeData/Products'
-import { DiscountProductData } from '../../fakeData/ProductsData'
+
 
 import Card from '../card/Card'
 

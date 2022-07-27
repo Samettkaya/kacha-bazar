@@ -191,7 +191,7 @@ function Card({ data }) {
                 disabled={data.quantity === 0 ? true : false}
                 onClick={() => handleAddToCart(data)}
                 ariallabel="chart"
-                className="cursor-pointer h-9 w-9 flex items-center justify-center border border-gray-200 rounded text-emerald-500 hover:border-emerald-500 hover:bg-emerald-500 hover:text-white transition-all"
+                className={data.quantity === 0 ? "!cursor-default h-9 w-9 flex items-center justify-center border border-gray-200 rounded text-emerald-500 hover:border-emerald-500 hover:bg-emerald-500 hover:text-white transition-all":"!cursor-pointer h-9 w-9 flex items-center justify-center border border-gray-200 rounded text-emerald-500 hover:border-emerald-500 hover:bg-emerald-500 hover:text-white transition-all"}
               >
                 <span className="text-xl">
                   <svg

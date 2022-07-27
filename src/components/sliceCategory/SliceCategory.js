@@ -11,13 +11,9 @@ function SliceCategory() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const handleClick = (value) => {
-    navigate("/search?Category=" + value)
-    const category =
-      value.includes("--") === true 
-        ? value.split("--").join(" ")
-        : value.split("-").join(" ");
-      
-   dispatch(searchAction({ value: category, path: "Category" }));
+    navigate("/search?Category=" + value);
+
+    dispatch(searchAction({ value: value, path: "Category" }));
   };
   return (
     <div className="relative">
@@ -71,7 +67,10 @@ function SliceCategory() {
         {CategoriesData.map((category, index) => {
           return (
             <SwiperSlide key={index} className="group">
-              <div onClick={()=>handleClick(category.path)} className="text-center cursor-pointer p-3 bg-white rounded-lg">
+              <div
+                onClick={() => handleClick(category.path)}
+                className="text-center cursor-pointer p-3 bg-white rounded-lg"
+              >
                 <div className="bg-white p-2 mx-auto w-10 h-10 rounded-full shadow-md">
                   <span
                     style={{
@@ -92,7 +91,7 @@ function SliceCategory() {
                     <img src={category.icon} />
                   </span>
                 </div>
-                <h3  className="text-xs text-gray-600 mt-2  group-hover:text-emerald-500">
+                <h3 className="text-xs text-gray-600 mt-2  group-hover:text-emerald-500">
                   {category.name}
                 </h3>
               </div>

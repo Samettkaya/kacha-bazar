@@ -27,9 +27,9 @@ export const CategoriesData = [
     ],
   },
   {
-    name: "Frutis & Vegatable",
+    name: "Fruits & Vegetable",
     icon: category2,
-    path:"frutis--vegatable",
+    path:"fruits--vegetable",
     subCategories: [
       { name: "Dry Frutis", path: "dry-frutis" },
       { name: "Fresh Frutis", path: "fresh-frutis" },
@@ -39,13 +39,13 @@ export const CategoriesData = [
   {
     name: "Fresh Seafood",
     icon: category3,
-    path:"fresh-seafood",
+    path:"fresh--seafood",
     subCategories: [{ name: "Fresh Seafood", path: "fresh-seafood" }],
   },
   {
     name: "Cooking Essentials",
     icon: category4,
-    path:"cooking-essentials",
+    path:"cooking--essentials",
     subCategories: [
       { name: "Oil", path: "oil" },
       { name: "Rice", path: "rice" },
@@ -84,7 +84,7 @@ export const CategoriesData = [
   {
     name: "Organic Food",
     icon: category8,
-    path:"organic-food",
+    path:"organic--food",
     subCategories: [{ name: "Organic Food", path: "organic-food" }],
   },
   {
@@ -130,7 +130,7 @@ export const CategoriesData = [
   {
     name: "Household Tools",
     icon: category14,
-    path:"household-tools",
+    path:"household--tools",
     subCategories: [
       { name: "Cleaner", path: "cleaner" },
       { name: "Laundry", path: "laundry" },
@@ -140,7 +140,7 @@ export const CategoriesData = [
   {
     name: "Baby Care",
     icon: category15,
-    path:"baby-care",
+    path:"baby--care",
     subCategories: [
       { name: "Baby Food", path: "baby-food" },
       { name: "Baby Accessories", path: "baby-accessories" },
@@ -149,7 +149,7 @@ export const CategoriesData = [
   {
     name: "Pet Care",
     icon: category16,
-    path:"pet-care",
+    path:"pet--care",
     subCategories: [
       { name: "Cat Care", path: "cat-care" },
       { name: "Dog Care", path: "dog-care" },

@@ -5,14 +5,13 @@ import Card from "../card/Card";
 import Informations from "../informations/Informations";
 import SocialNetwork from "../socialNetwork/SocialNetwork";
 import { addByIncrement } from "../../store/reducers/cartSlice";
-import { getProductByCategory } from "../../fakeData/Products";
-import { getProductById } from "../../fakeData/ProductsData";
+import {  getProductByChildrenCategory, getProductById } from "../../fakeData/Products";
 
 function Product() {
   const [total, setTotal] = useState(1)
   const { productTitle } = useParams();
   const product = getProductById(productTitle);
-  const RelatedProduct = getProductByCategory(product.category);
+  const RelatedProduct = getProductByChildrenCategory(product.children);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -54,12 +53,12 @@ function Product() {
               <li className="text-sm pr-1 transition duration-200 ease-in cursor-pointer hover:text-emerald-500 font-semibold">
                 <Link
                   className="!no-underline !text-black hover:!text-emerald-500"
-                  to={`/search?category=${product.category
+                  to={`/search?category=${product.children
                     .toLowerCase()
                     .split(" ")
                     .join("-")}`}
                 >
-                  {product.category}
+                  {product.children}
                 </Link>
               </li>
               <li className="text-sm mt-[1px]">
@@ -85,9 +84,9 @@ function Product() {
           <div className="w-full rounded-lg p-3 lg:p-12 bg-white">
             <div className="flex flex-col xl:flex-row">
               <div className="flex-shrink-0 xl:pr-10 lg:block w-full mx-auto md:w-6/12 lg:w-5-12 xl:w-4/12">
-                {product.sales !== 0 && (
+                {product.discount ===0 ?"" :(
                   <span className=" text-dark text-sm bg-orange-500 text-white py-1 px-2 rounded font-medium z-10 right-4 top-4">
-                    {product.sales}% Off
+                    {Math.ceil(product.discount) }% Off
                   </span>
                 )}
                 <span
@@ -107,7 +106,7 @@ function Product() {
                 >
                   <img
                     alt={product.title}
-                    src={product.images[1].medium}
+                    src={product.image}
                     sizes="100vw"
                   />
                 </span>
@@ -128,21 +127,21 @@ function Product() {
                     </div>
                     <div className="font-bold">
                       <span className="inline-block text-2xl">
-                        ${product.price}
+                        ${product.price} 
                       </span>
-                      {product.sales !== 0 && (
+                      {product.originalPrice ===product.price ?"": (
                         <del className="text-lg font-normal text-gray-400 ml-1">
-                          ${product.oldPrice}
+                          ${product.originalPrice}
                         </del>
                       )}
                     </div>
                     <div className="mb-4 md:mb-5 block">
-                      {product.stock !== 0 && (
+                      {product.quantity !== 0 && (
                         <span className="bg-emerald-100 text-emerald-600 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold mt-2 ">
                           In Stock
                         </span>
                       )}
-                      {product.stock === 0 && (
+                      {product.quantity === 0 && (
                         <span className="bg-red-100 text-red-600 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold  mt-2">
                           Stock Out
                         </span>
@@ -180,7 +179,7 @@ function Product() {
                               {total}
                             </p>
                             <button
-                            disabled={product.stock === 0 ? true : false}
+                            disabled={product.quantity === 0 ? true : false}
                             onClick={()=>{
                               
                               setTotal(total+1)
@@ -203,7 +202,7 @@ function Product() {
                               </span>
                             </button>
                           </div>
-                          <button  disabled={product.stock === 0 ? true : false} onClick={()=>handleAddToCart(product)} className="text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-4 ml-4 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-emerald-500 hover:bg-emerald-600 w-full h-12">
+                          <button  disabled={product.quantity === 0 ? true : false} onClick={()=>handleAddToCart(product)} className="text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-4 ml-4 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-emerald-500 hover:bg-emerald-600 w-full h-12">
                             Add To Cart
                           </button>
                         </div>
@@ -212,17 +211,17 @@ function Product() {
                         <span className=" font-semibold py-1 text-sm d-block">
                           <span className="text-gray-700">Category: </span>
                           <span className="text-gray-500">
-                            {product.category}
+                            {product.children}
                           </span>
                         </span>
                         <div className="flex flex-row">
-                          {product.tag.map((e) => {
+                          {product.tag.map((e,index) => {
                             return (
                               <span
-                                key={e.id}
+                                key={index}
                                 className="bg-gray-50 mr-2 border-0 text-gray-600 rounded-full inline-flex items-center justify-center px-3 py-1 text-xs font-semibold  mt-2"
                               >
-                                {e.name}
+                                {e}
                               </span>
                             );
                           })}

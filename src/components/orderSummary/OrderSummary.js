@@ -37,7 +37,7 @@ function OrderSummary() {
             <div key={index} className="group w-full h-auto flex justify-start items-center bg-white py-3 px-4 border-b hover:bg-gray-50 transition-all border-gray-100 relative last:border-b-0 ">
             <div className="relative flex rounded-full border border-gray-100 shadow-sm overflow-hidden flex-shrink-0 cursor-pointer mr-4">
               <img
-               src={cartItem.images[0].small}
+               src={cartItem.image}
                 width="40"
                 height="40"
                 alt="Blueberry"

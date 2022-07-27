@@ -1,6 +1,6 @@
 import React from "react";
 import { popularProducts } from "../../fakeData/Products";
-import { PopularProductData } from "../../fakeData/ProductsData";
+
 
 import Card from "../card/Card";
 

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getProductByCategory, getProductByName } from "../../fakeData/Products";
+import {  getProductByChildrenCategory, getProductByName, getProductByParentCategory } from "../../fakeData/Products";
 
 const initialState = {
   value: null,
@@ -14,11 +14,16 @@ export const searchSlice = createSlice({
     searchAction: (state, action) => {
       state.path = action.payload.path;
       state.value = action.payload.value;
-
+      console.log("state"+state.value)
       if (state.path === "query") {
         state.product = getProductByName(state.value);
       } else {
-        state.product = getProductByCategory(state.value);
+        state.product =
+        state.value.includes("--") === true
+        ?  getProductByParentCategory(state.value.split("--").join("&"))
+        : getProductByChildrenCategory(state.value.split("-").join(" "))
+
+        
       }
     },
   },

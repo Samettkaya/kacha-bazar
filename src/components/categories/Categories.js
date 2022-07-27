@@ -9,12 +9,12 @@ function Categories() {
   const dispatch = useDispatch();
   const handleClick = (value) => {
     navigate("/search?Category=" + value);
-    const category =
-      value.includes("--") === true
-        ? value.split("--").join(" ")
-        : value.split("-").join(" ");
+    // const category =
+    //   value.includes("--") === true
+    //     ? value.split("--").join(" ")
+    //     : value.split("-").join(" ");
 
-    dispatch(searchAction({ value: category, path: "Category" }));
+    dispatch(searchAction({ value: value, path: "Category" }));
   };
 
   return (
@@ -113,8 +113,11 @@ function Categories() {
                       </div>
                     </div>
                     <div className="pl-4">
-                      <h3 className="text-sm text-gray-600 font-medium leading-tight line-clamp-1 group-hover:text-emerald-500">
-                        {category.name}
+                      <h3 className="text-sm  font-medium leading-tight line-clamp-1 ">
+                      <Link className="  !no-underline !text-gray-600 group-hover:!text-emerald-500 cursor-pointer " to={"/search?Category=" + category.path}>
+                      {category.name}
+                      </Link>
+                       
                       </h3>
                       <ul className="pt-1 mt-1">
                         {category.subCategories.map((subCategory, index) => {

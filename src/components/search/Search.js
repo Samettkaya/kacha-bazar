@@ -5,12 +5,14 @@ import ProductList from "../productList/ProductList";
 import SliceCategory from "../sliceCategory/SliceCategory";
 import NotFoundProduct from "../notFoundProduct/NotFoundProduct";
 import { useSelector } from "react-redux";
+import { getProductByParentCategory } from "../../fakeData/Products";
 const Search = () => {
-  const {product} = useSelector(state=>state.search)
+  const { product } = useSelector((state) => state.search);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+  const data=getProductByParentCategory("fish & meat")
+console.log(data)
   //   useEffect(() => {
 
   //     const value =

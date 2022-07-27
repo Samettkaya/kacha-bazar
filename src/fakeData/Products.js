@@ -26,7 +26,7 @@ export const Products = [
 
     originalPrice: 12,
     parent: "Fruits & Vegetable",
-    quantity: -1,
+    quantity: -0,
     slug: "rainbow-chard",
     title: "Rainbow Chard",
     type: "Grocery",
@@ -1384,7 +1384,7 @@ export const Products = [
     image: images["product-60.png"],
     originalPrice: 15,
     parent: "Fish & Meat",
-    quantity: -1,
+    quantity: -0,
     slug: "atlantic-salmon",
     title: "Atlantic Salmon",
     type: "Grocery",
@@ -6877,7 +6877,7 @@ export const popularProducts = [
 
     originalPrice: 12,
     parent: "Fruits & Vegetable",
-    quantity: -1,
+    quantity: -0,
     slug: "rainbow-chard",
     title: "Rainbow Chard",
     type: "Grocery",
@@ -7284,9 +7284,15 @@ export function getProductById(title) {
   return Products.find((product) => product.slug === title);
 }
 
-export function getProductByCategory(category) {
+export function getProductByChildrenCategory(category) {
   return Products.filter(
     (product) => product.children.toLowerCase() === category.toLowerCase()
+  );
+}
+
+export function getProductByParentCategory(category) {
+  return Products.filter(
+    (product) => product.parent.toLowerCase() === category.toLowerCase()
   );
 }
 
